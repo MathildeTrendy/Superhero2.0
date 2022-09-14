@@ -38,8 +38,8 @@ public class Superhero {
     }
 
     @Override
-    public String toString() {
-        return helteNavn + " " + ægteNavn + " " + årstal + " " + superkraft + " " + human;
+   public String toString() {
+    return helteNavn + " " + ægteNavn + " " + årstal + " " + superkraft + " " + human;
 
 }
 }

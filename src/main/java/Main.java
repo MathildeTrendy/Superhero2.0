@@ -1,51 +1,103 @@
 import java.util.Scanner;
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println("Velkommen til superhelteverdenen!");
-        System.out.println("---------------------------------");
+    Scanner scanner = new Scanner(System.in);
+    Database database = new Database();
 
-        Scanner scanner = new Scanner(System.in);
-        Database database = new Database();
+    int menuvalg;
+    int valg;
 
 
+    public void startMenu() {
+        database.createTestData();
         do {
-            System.out.println("1) For at oprette ny superhelt \n 5) Søg efter superhelt \n 9) Luk databasen ");
-
-            int menuvalg = scanner.nextInt();
-
-
-            if ((menuvalg) == 1) {
-                System.out.println("Opret en superhelt");
-
-                System.out.println("Indtast en superhelts navn (fx Superman)");
-                String heltenavn = scanner.nextLine();
+            System.out.println("--------------------------------- \n Velkommen til superhelteverdenen!");
+            System.out.println("---------------------------------");
+            System.out.println(" 1) Opret ny superhelt \n 2) Søg efter superhelt \n 5) Vis alle superhelte  \n 9) Luk databasen \n ---------------------------------");
 
 
-                System.out.println("Indtast superheltens rigtige navn");
-                String ægtenavn = scanner.nextLine();
+            int valg = scanner.nextInt();
+            scanner.nextLine();
+            if (valg == 1) {
+                opretSuperheroMenu();
+            }
+            else if (valg == 2){
+                søgHelt();
+            }
+            else if (valg == 9) {
+                System.exit(0);
 
-                System.out.println("Indtast superheltens superkræfter");
-                String superkraft = scanner.nextLine();
+            } else if (valg == 5) {
+                listeMenu();
+            }
 
-                System.out.println("Er superhelten et menneske? (alternativ et rumvæsen)");
-                boolean human = scanner.nextBoolean();
-
-                System.out.println("Indtast superheltens oprettelsesår");
-                int årstal = scanner.nextInt();
-
-                database.createSuperhero(heltenavn, ægtenavn, årstal, superkraft, human);
-
-            } else if (menuvalg == 9) ;
-            System.out.println("Program afsluttes");
-            System.exit(9);scanner.nextInt();
+        } while (valg != 9);
+    }
 
 
-            }while (true) ;
+
+    public void opretSuperheroMenu() {
+
+        System.out.println("Oprettelse af superhelt\n");
+
+        System.out.println("Indtast en superhelts navn (fx Superman):");
+        String heltenavn = scanner.nextLine();
+
+        System.out.println("Indtast superheltens rigtige navn:");
+        String ægtenavn = scanner.nextLine();
+
+        System.out.println("Indtast superheltens superkræfter:");
+        String superkraft = scanner.nextLine();
+
+        System.out.println("Er superhelten et menneske? (alternativ et rumvæsen):");
+        boolean human = scanner.nextBoolean();
+
+        System.out.println("Indtast superheltens oprindelsesår:");
+        int årstal = scanner.nextInt();
+
+        database.createSuperhero(heltenavn, ægtenavn, årstal, superkraft, human);
+    }
+
+
+    public void listeMenu() {
+        System.out.println("Liste over superhelte:\n");
+        for (Superhero superhero : database.getSuperheroes()){
+            System.out.println("Heltenavn: " + superhero.getHelteNavn() + "\n" + "Rigtige navn: " + superhero.getÆgteNavn() + "\n" + "Oprindelsesår: " + superhero.getÅrstal() + "\n" + "Superkraft: " + superhero.getSuperkraft() + "\n" + "Er et menneske: " + superhero.getHuman() + "\n");
 
         }
+    }
+
+    public void søgHelt() {
+        System.out.println("---------------------------------\nSøg efter superhelt:");
+        String searchTerm = scanner.nextLine();
+        Superhero fundet = database.searchFor(searchTerm);
+        if (fundet == null){
+            System.out.println("Intet resultat");
+            System.out.println("---------------------------------");
+        }
+        else{
+        System.out.println("Heltenavn: " + fundet.getHelteNavn() + "\n" + "Rigtige navn: " + fundet.getÆgteNavn() + "\n" +
+        "Oprindelsesår: " + fundet.getÅrstal() + "\n" + "Superkraft: " + fundet.getSuperkraft() + "\n" + "Er et menneske: " + fundet.getHuman());
+        }
+
 
     }
+
+//Programmet startes
+    public static void main(String[] args) {
+        Main program = new Main();
+        program.startMenu();
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 
