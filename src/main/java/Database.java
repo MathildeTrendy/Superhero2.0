@@ -1,8 +1,9 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
 
-    private ArrayList<Superhero> superheroes = new ArrayList<>();
+    private ArrayList<Superhero> superheroes = new ArrayList<Superhero>(List.of());
 
     public void createTestData() {
         createSuperhero("Bobbel", "Samme som heltenavn", 1998, "Tale med dyr", false);
@@ -12,10 +13,6 @@ public class Database {
         createSuperhero("Bolt", "Samme som heltenavn", 2008, "Lasersyn", false);
 
     }
-
-
-
-
 
     public void createSuperhero(String heltenavn, String ægtenavn, int årstal, String superkraft, boolean human) {
 
