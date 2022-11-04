@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +26,14 @@ public class Database {
             }
         }return null;
     }
+
+   /* Superhero[] superhero = {}
+        Array.sort(superheros, new NameComparator());
+        System.out.println("Superhero List - Sorteret efter navn" + superheroes);
+
+}/*
+
+    */
 }
 
 
