@@ -12,7 +12,6 @@ public class Database {
         Superhero hero = new Superhero(heltenavn, ægtenavn, årstal, superkraft, human);
 
         superheroes.add(hero);
-
     }
 
     public ArrayList<Superhero> getSuperheroes() {
@@ -21,10 +20,11 @@ public class Database {
 
     public Superhero searchFor(String searchTerm) {
         for (Superhero superhero : superheroes) {
-            if (superhero.getHelteNavn().equals(searchTerm)) {
+            if (superhero.getHelteNavn().equalsIgnoreCase(searchTerm)) {
                 return superhero;
             }
-        }return null;
+        }
+        return null;
     }
 
    /* Superhero[] superhero = {}
