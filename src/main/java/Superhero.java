@@ -34,6 +34,26 @@ public class Superhero {
         return human;
     }
 
+    public void setHelteNavn(String helteNavn) {
+        this.helteNavn = helteNavn;
+    }
+
+    public void setÆgteNavn(String ægteNavn) {
+        this.ægteNavn = ægteNavn;
+    }
+
+    public void setÅrstal(int årstal) {
+        this.årstal = årstal;
+    }
+
+    public void setSuperkraft(String superkraft) {
+        this.superkraft = superkraft;
+    }
+
+    public void setHuman(boolean human) {
+        this.human = human;
+    }
+
     @Override
     public String toString() {
         return helteNavn + " " + ægteNavn + " " + årstal + " " + superkraft + " " + human;
