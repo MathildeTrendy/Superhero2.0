@@ -1,4 +1,4 @@
-package Comparator;
+/*package Comparator;
 
 import java.lang.reflect.Array;
 
@@ -13,3 +13,4 @@ public class NameComparator {
         }
     }
 }
+*/

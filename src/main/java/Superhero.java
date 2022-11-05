@@ -34,10 +34,6 @@ public class Superhero {
         return human;
     }
 
-    public int setAntal() {
-        return setAntal();
-    }
-
     @Override
     public String toString() {
         return helteNavn + " " + ægteNavn + " " + årstal + " " + superkraft + " " + human;

@@ -1,31 +1,36 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
 
-    private ArrayList<Superhero> superheroes = new ArrayList<Superhero>(List.of());
+    private ArrayList<Superhero> superheroesDB = new ArrayList<>();
 
 
     public void createSuperhero(String heltenavn, String ægtenavn, int årstal, String superkraft, boolean human) {
 
         Superhero hero = new Superhero(heltenavn, ægtenavn, årstal, superkraft, human);
-
-        superheroes.add(hero);
+        superheroesDB.add(hero);
     }
 
-    public ArrayList<Superhero> getSuperheroes() {
-        return superheroes;
-    }
 
-    public Superhero searchFor(String searchTerm) {
-        for (Superhero superhero : superheroes) {
+    public ArrayList<Superhero> searchFor(String searchTerm) {
+        ArrayList<Superhero> searchResult = new ArrayList<>();
+
+        for (Superhero superhero : superheroesDB) {
             if (superhero.getHelteNavn().equalsIgnoreCase(searchTerm)) {
-                return superhero;
+                searchResult.add(superhero);
             }
         }
-        return null;
+        return searchResult;
     }
+    public ArrayList<Superhero> getAllSuperHeroes() {
+        return superheroesDB;
+    }
+
+    public boolean deleteSuperhero(Superhero superhero) {
+        boolean succes;
+        succes = superheroesDB.remove(superhero);
+        return succes;
 
    /* Superhero[] superhero = {}
         Array.sort(superheros, new NameComparator());
@@ -34,6 +39,7 @@ public class Database {
 }/*
 
     */
+    }
 }
 
 

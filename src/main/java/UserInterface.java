@@ -4,6 +4,7 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     Controller controller = new Controller();
 
+
     int menuvalg;
     int valg;
 
@@ -11,7 +12,7 @@ public class UserInterface {
         do {
             System.out.println("--------------------------------- \n Velkommen til superhelteverdenen!");
             System.out.println("---------------------------------");
-            System.out.println(" 1) Opret ny superhelt \n 2) Vis alle superhelte \n 3) Søg efter superhelt  \n 4) rediger helt \n 5) slet helt \n 6) gem helte  \n 9) Luk databasen \n ---------------------------------");
+            System.out.println(" 1) Opret ny superhelt \n 2) Vis alle superhelte \n 3) Søg efter superhelt  \n 4) Redigér helt \n 5) Slet helt \n 6) Gem helt  \n 9) Luk databasen \n ---------------------------------");
 
 
             int valg = scanner.nextInt();
@@ -34,9 +35,4 @@ public class UserInterface {
 
         } while (valg != 9);
     }
-
-
-
-
-
 }
