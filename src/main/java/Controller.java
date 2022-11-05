@@ -114,11 +114,6 @@ public class Controller {
         }
     }
 
-    private void saveData() {
-        controller.saveData();
-        System.out.println("Data is saved");
-    }
-
     public static void gemHelt() {
 
     }
