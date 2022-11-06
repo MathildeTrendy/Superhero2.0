@@ -114,7 +114,7 @@ public class Controller {
         }
     }
 
-    public static void gemHelt() {
+    public void gemHelt() {
 
     }
 
