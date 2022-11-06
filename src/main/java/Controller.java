@@ -1,9 +1,13 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Controller {
     Scanner scanner = new Scanner(System.in);
     private Database database = new Database();
+    private final String fileName = "superheros.txt";
 
     public void opretSuperheroMenu() {
 
@@ -114,9 +118,13 @@ public class Controller {
         }
     }
 
-    public void gemHelt() {
-
-
+    public void loadData() throws FileNotFoundException {
+        Filehandler filehandler = new Filehandler();
+        filehandler.LoadData(database.getAllSuperHeroes());
+    }
+    public void gemData() throws FileNotFoundException {
+        Filehandler filehandler = new Filehandler();
+        filehandler.gemData(database.getAllSuperHeroes());
     }
 
     public void sletHelt() {
