@@ -18,8 +18,8 @@ public class Controller {
         System.out.println("Indtast superheltens superkræfter:");
         String superkraft = scanner.nextLine();
 
-        System.out.println("Er superhelten et menneske? (true/false):");
-        boolean human = scanner.nextBoolean();
+        System.out.println("Er superhelten et menneske? (Ja/Nej):");
+        boolean human = scanner.nextLine().substring(0, 1).equalsIgnoreCase("j");
 
         System.out.println("Indtast superheltens oprindelsesår:");
         int årstal = scanner.nextInt();
@@ -115,6 +115,7 @@ public class Controller {
     }
 
     public void gemHelt() {
+
 
     }
 

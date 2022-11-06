@@ -12,7 +12,6 @@ public class Database {
         superheroesDB.add(hero);
     }
 
-
     public ArrayList<Superhero> searchFor(String searchTerm) {
         ArrayList<Superhero> searchResult = new ArrayList<>();
 
