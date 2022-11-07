@@ -10,8 +10,9 @@ public class UserInterface {
     int valg;
 
     public void startMenu() throws IOException {
-        controller.loadData();
+
         do {
+
             System.out.println("--------------------------------- \n Velkommen til superhelteverdenen!");
             System.out.println("---------------------------------");
             System.out.println(" 1) Opret ny superhelt \n " +
@@ -32,7 +33,7 @@ public class UserInterface {
             } else if (valg == 2) {
                 controller.listeMenu();
             } else if (valg == 3) {
-                controller.showSortedList();
+                controller.sortedList(); //Sorted list by users choice
             } else if (valg == 4) {
                 controller.søgHelt();
             } else if (valg == 5) {
@@ -41,9 +42,11 @@ public class UserInterface {
                 controller.sletHelt();
             } else if (valg == 7) {
                 controller.gemData();
-            } /*else if (valg == 8){
+            } else if (valg == 8) {
                 controller.loadData();
-            }*/ else if (valg == 9) {
+            } else if (valg == 9) {
+
+            } else if (valg == 10) {
                 System.exit(0);
             }
 

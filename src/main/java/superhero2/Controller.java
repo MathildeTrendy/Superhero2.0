@@ -1,5 +1,8 @@
 package superhero2;
 
+import superhero2.comparator.CreationYear;
+
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -37,52 +40,6 @@ public class Controller {
         System.out.println("Liste over superhelte:\n");
         for (Superhero superhero : database.getAllSuperHeroes()) {
             System.out.println("Heltenavn: " + superhero.getHelteNavn() + "\n" + "Rigtige navn: " + superhero.getÆgteNavn() + "\n" + "Oprindelsesår: " + superhero.getÅrstal() + "\n" + "Superkraft: " + superhero.getSuperkraft() + "\n" + "Er et menneske: " + superhero.getHuman() + "\n");
-
-        }
-    }
-
-    public void showSortedList() {
-        System.out.println("Chose how you would like to sort your list:");
-        System.out.println("1) by superhero name");
-        System.out.println("2) by real name");
-        System.out.println("3) by year of origin");
-        System.out.println("4) by type of superpowers");
-        System.out.println("5) by strenght of superhero");
-        System.out.println("6) by human status");
-        System.out.println("7) Quit to main menu");
-
-        boolean isRunning = true;
-        while (isRunning) {
-            int userChoice = 1;
-
-            switch (userChoice) {
-                case 1 -> {
-                    System.out.println("Superheroes by name: ");
-                }
-                case 2 -> {
-                    System.out.println("Superheroes by real name: ");
-                }
-                case 3 -> {
-                    System.out.println("Superheroes by year of origin: ");
-                }
-                case 4 -> {
-                    System.out.println("Superheroes by type of superpowers: ");
-                }
-                case 5 -> {
-                    System.out.println("Superheroes by strenght: ");
-                }
-                case 6 -> {
-                    System.out.println("Superheroes by human status: ");
-                }
-                case 7 -> {
-                    System.out.println("Returning to menu");
-                    isRunning = false;
-                }
-                default -> {
-                    System.out.println("I don't understand that command, which type of sorted list would you like?");
-                    System.out.println("If you wish to return to menu, type quit");
-                }
-            }
 
         }
     }
@@ -209,6 +166,11 @@ public class Controller {
 
             }
         }
+    }
+
+    public void sortedList() {
+        Filehandler filehandler = new Filehandler();
+        filehandler.SortedList();
     }
 }
 
