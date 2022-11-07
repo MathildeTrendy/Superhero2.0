@@ -1,6 +1,9 @@
 package superhero2;
 
-import java.io.IOException;
+import superhero2.comparator.CreationYear;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -43,6 +46,9 @@ public class Controller {
     }
     public void searchHero() {
         System.out.println("---------------------------------\nSearch superhero:");
+
+    public void søgHelt() {
+        System.out.println("---------------------------------\nSøg efter superhelt:");
 
         System.out.println("Type the name of the superhero you'll like to search for");
         String searchTerm = scanner.next();
@@ -119,14 +125,13 @@ public class Controller {
         }
     }
 
-    public void loadData() throws IOException {
+    public void loadData() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
-        ArrayList<Superhero> superheroes= filehandler.loadData();
+        ArrayList<Superhero> superheroes = filehandler.loadData();
         database.updateSuperheroList(superheroes);
     }
 
-
-    public void gemData() throws IOException {
+    public void gemData() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
         filehandler.gemData(database.getAllSuperHeroes());
         loadData();
@@ -165,12 +170,21 @@ public class Controller {
         }
     }
 
+    public void sortedList() {
+        Filehandler filehandler = new Filehandler();
+        filehandler.SortedList();
+    }
+
     public void createSuperHero() {
     }
 
     public void saveData() {
     }
 }
+
+
+
+
 
 
 

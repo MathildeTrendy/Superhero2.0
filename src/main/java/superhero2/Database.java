@@ -6,8 +6,7 @@ public class Database {
 
     private ArrayList<Superhero> superheroesDB = new ArrayList<>();
 
-
-    public void createSuperhero(String superheroName, String realName, int creationYear, String superpower, boolean human, double strength) {
+    public void createSuperhero(String heltenavn, String ægtenavn, int årstal, String superkraft, boolean human, double strength) {
 
         Superhero hero = new Superhero(superheroName, realName, creationYear, superpower, human, strength);
         superheroesDB.add(hero);
@@ -23,6 +22,7 @@ public class Database {
         }
         return searchResult;
     }
+
     public ArrayList<Superhero> getAllSuperHeroes() {
         return superheroesDB;
     }

@@ -11,10 +11,21 @@ public class UserInterface {
     int valg;
 
     public void startMenu() throws IOException {
-        controller.loadData();
+
         do {
+
+            System.out.println("--------------------------------- \n Velkommen til superhelteverdenen!");
             System.out.println("--------------------------------- \n Welcome to the Superhero World!");
             System.out.println("---------------------------------");
+            System.out.println(" 1) Opret ny superhelt \n " +
+                    "2) Vis alle superhelte \n " +
+                    "3) Vis sortet liste \n " +
+                    "3) Søg efter superhelt  \n " +
+                    "4) Redigér helt \n " +
+                    "5) Slet helt \n " +
+                    "6) Gem helt \n " +
+                    "7) load data \n " +
+                    "9) Luk databasen \n ---------------------------------");
             System.out.println(" 1) Create new superhero \n " +
                     "2) Show all superheroes \n " +
                     "3) Search superhero  \n " +
@@ -33,6 +44,7 @@ public class UserInterface {
                 controller.listeMenu();
             } else if (valg == 3) {
                 controller.searchHero();
+                controller.sortedList(); //Sorted list by users choice
             } else if (valg == 4) {
                 controller.editHero();
             } else if (valg == 5) {
@@ -40,8 +52,18 @@ public class UserInterface {
             } else if (valg == 6) {
                 controller.saveData(); //??
             } /*else if (valg == 7){
+                controller.søgHelt();
+            } else if (valg == 5) {
+                controller.redigerHelt();
+            } else if (valg == 6) {
+                controller.sletHelt();
+            } else if (valg == 7) {
+                controller.gemData();
+            } else if (valg == 8) {
                 controller.loadData();
-            }*/ else if (valg == 9) {
+            } else if (valg == 9) {
+
+            } else if (valg == 10) {
                 System.exit(0);
             }
 
