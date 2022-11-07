@@ -28,9 +28,9 @@ public class Controller {
         int årstal = scanner.nextInt();
 
         System.out.println("indtast superhelte-styrke");
-        double power = scanner.nextInt();
+        double strenght = scanner.nextInt();
 
-        database.createSuperhero(heltenavn, ægtenavn, årstal, superkraft, human, power);
+        database.createSuperhero(heltenavn, ægtenavn, årstal, superkraft, human, strenght);
     }
 
     public void listeMenu() {

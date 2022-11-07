@@ -7,15 +7,15 @@ public class Superhero {
     private int årstal;
     private String superkraft;
     private boolean human;
-    private double power;
+    private double strength;
 
-    public Superhero(String helteNavn, String ægteNavn, int årstal, String superkraft, boolean human, double power) {
+    public Superhero(String helteNavn, String ægteNavn, int årstal, String superkraft, boolean human, double strength) {
         this.helteNavn = helteNavn;
         this.ægteNavn = ægteNavn;
         this.årstal = årstal;
         this.superkraft = superkraft;
         this.human = human;
-        this.power=power;
+        this.strength=strength;
     }
 
     public Superhero() {
@@ -42,7 +42,7 @@ public class Superhero {
         return human;
     }
     public double getPower() {
-        return power;
+        return strength;
     }
 
     public void setHelteNavn(String helteNavn) {
@@ -64,8 +64,8 @@ public class Superhero {
     public void setHuman(boolean human) {
         this.human = human;
     }
-    public void setPower(double power){
-        this.power=power;
+    public void setPower(double strength){
+        this.strength=strength;
     }
 
     @Override
@@ -76,7 +76,7 @@ public class Superhero {
                 ", årstal=" + årstal +
                 ", superkraft='" + superkraft + '\'' +
                 ", human=" + human +
-                ", power=" + power +
+                ", strength=" + strength +
                 '}';
     }
 }

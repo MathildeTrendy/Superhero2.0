@@ -7,9 +7,9 @@ public class Database {
     private ArrayList<Superhero> superheroesDB = new ArrayList<>();
 
 
-    public void createSuperhero(String heltenavn, String ægtenavn, int årstal, String superkraft, boolean human, double power) {
+    public void createSuperhero(String heltenavn, String ægtenavn, int årstal, String superkraft, boolean human, double strength) {
 
-        Superhero hero = new Superhero(heltenavn, ægtenavn, årstal, superkraft, human, power);
+        Superhero hero = new Superhero(heltenavn, ægtenavn, årstal, superkraft, human, strength);
         superheroesDB.add(hero);
     }
 
