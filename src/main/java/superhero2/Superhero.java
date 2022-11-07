@@ -7,9 +7,6 @@ public class Superhero {
     private int årstal;
     private String superkraft;
     private boolean human;
-
-
-
     private double power;
 
     public Superhero(String helteNavn, String ægteNavn, int årstal, String superkraft, boolean human, double power) {
