@@ -3,12 +3,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Filehandler {
-    public ArrayList<Superhero> loadData(ArrayList<Superhero> allSuperHeroes) throws FileNotFoundException {
-        Scanner Scan = new Scanner(new File("Superheroes.csv"));
+    private String path = "src/main/java/Data/Superheroes.csv";
+    public ArrayList<Superhero> loadData() throws FileNotFoundException {
+        Scanner Scan = new Scanner(new File(path));
 
         ArrayList<Superhero> superheroes = new ArrayList<>();
 
-        Scan.nextLine();
+        //Scan.nextLine();
 
         while (Scan.hasNextLine()) {
             String line = Scan.nextLine();
@@ -23,14 +24,20 @@ public class Filehandler {
 
     public void gemData(ArrayList<Superhero> superheroes) throws FileNotFoundException {
 
-        PrintStream output = new PrintStream(new File("Superheroes.csv"));
+        PrintStream output = new PrintStream(new File(path));
 
+        //navn;ægtenavn;
         for (Superhero superhero : superheroes) {
-            output.println(superhero.getHelteNavn());
-            output.println(superhero.getÆgteNavn());
-            output.println(superhero.getÅrstal());
-            output.println(superhero.getSuperkraft());
-            output.println(superhero.getHuman());
+            output.print(superhero.getHelteNavn());
+            output.print(";");
+            output.print(superhero.getÆgteNavn());
+            output.print(";");
+            output.print(superhero.getÅrstal());
+            output.print(";");
+            output.print(superhero.getSuperkraft());
+            output.print(";");
+            output.print(superhero.getHuman());
+            output.println();
         }
     }
 

@@ -6,11 +6,11 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     Controller controller = new Controller();
 
-
     int menuvalg;
     int valg;
 
     public void startMenu() throws IOException {
+        controller.loadData();
         do {
             System.out.println("--------------------------------- \n Velkommen til superhelteverdenen!");
             System.out.println("---------------------------------");
@@ -38,9 +38,9 @@ public class UserInterface {
                 controller.sletHelt();
             } else if (valg == 6) {
                 controller.gemData();
-            } else if (valg == 7){
+            } /*else if (valg == 7){
                 controller.loadData();
-            } else if (valg == 9) {
+            }*/ else if (valg == 9) {
                 System.exit(0);
             }
 
