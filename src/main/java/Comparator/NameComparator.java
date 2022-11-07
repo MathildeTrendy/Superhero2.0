@@ -1,16 +1,11 @@
-/*package Comparator;
+package Comparator;
 
-import java.lang.reflect.Array;
-
-public class NameComparator {
-
-    public static void main (String[] args) {
+import Data.Superhero;
+import java.util.Comparator;
 
 
-    public class NavnComparator implements Comparator <Person> {
-        public int compare(Person p1, Person p2) {
-            return p1.getNavn().compareTo(p2.getNavn());
+    public class NameComparator implements Comparator<Superhero> {
+        public int compare( Superhero a1, Superhero a2) {
+            return a1.getÆgteNavn().compareToIgnoreCase(a2.getÆgteNavn());
         }
     }
-}
-*/

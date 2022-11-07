@@ -1,5 +1,6 @@
+import Data.Superhero;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class Database {
 
@@ -31,9 +32,9 @@ public class Database {
         succes = superheroesDB.remove(superhero);
         return succes;
 
-   /* Superhero[] superhero = {}
+   /* Data.Superhero[] superhero = {}
         Array.sort(superheros, new NameComparator());
-        System.out.println("Superhero List - Sorteret efter navn" + superheroes);
+        System.out.println("Data.Superhero List - Sorteret efter navn" + superheroes);
 
 }/*
 
