@@ -1,6 +1,6 @@
 package superhero2;
 
-import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -40,8 +40,53 @@ public class Controller {
 
         }
     }
+
     public void showSortedList() {
+        System.out.println("Chose how you would like to sort your list:");
+        System.out.println("1) by superhero name");
+        System.out.println("2) by real name");
+        System.out.println("3) by year of origin");
+        System.out.println("4) by type of superpowers");
+        System.out.println("5) by strenght of superhero");
+        System.out.println("6) by human status");
+        System.out.println("7) Quit to main menu");
+
+        boolean isRunning = true;
+        while (isRunning) {
+            int userChoice = 1;
+
+            switch (userChoice) {
+                case 1 -> {
+                    System.out.println("Superheroes by name: ");
+                }
+                case 2 -> {
+                    System.out.println("Superheroes by real name: ");
+                }
+                case 3 -> {
+                    System.out.println("Superheroes by year of origin: ");
+                }
+                case 4 -> {
+                    System.out.println("Superheroes by type of superpowers: ");
+                }
+                case 5 -> {
+                    System.out.println("Superheroes by strenght: ");
+                }
+                case 6 -> {
+                    System.out.println("Superheroes by human status: ");
+                }
+                case 7 -> {
+                    System.out.println("Returning to menu");
+                    isRunning = false;
+                }
+                default -> {
+                    System.out.println("I don't understand that command, which type of sorted list would you like?");
+                    System.out.println("If you wish to return to menu, type quit");
+                }
+            }
+
+        }
     }
+
     public void søgHelt() {
         System.out.println("---------------------------------\nSøg efter superhelt:");
 
@@ -59,6 +104,7 @@ public class Controller {
             }
         }
     }
+
     public void redigerHelt() {
         System.out.println("Indtast navnet på den superhelt du ønsker at redigere:");
         String searchTerm = scanner.next();
@@ -119,16 +165,19 @@ public class Controller {
             System.out.println("Superhelt ændret til:\n " + hero);
         }
     }
-    public void loadData() throws IOException {
+
+    public void loadData() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
-        ArrayList<Superhero> superheroes= filehandler.loadData();
+        ArrayList<Superhero> superheroes = filehandler.loadData();
         database.updateSuperheroList(superheroes);
     }
-    public void gemData() throws IOException {
+
+    public void gemData() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
         filehandler.gemData(database.getAllSuperHeroes());
         loadData();
     }
+
     public void sletHelt() {
 
         System.out.println("Søg efter den helt du vil slette fra databasen:");
@@ -161,8 +210,11 @@ public class Controller {
             }
         }
     }
-
 }
+
+
+
+
 
 
 
