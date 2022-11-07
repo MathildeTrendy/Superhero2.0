@@ -28,7 +28,10 @@ public class Controller {
         System.out.println("Indtast superheltens oprindelsesår:");
         int årstal = scanner.nextInt();
 
-        database.createSuperhero(heltenavn, ægtenavn, årstal, superkraft, human);
+        System.out.println("indtast superhelte-styrke");
+        double power = scanner.nextInt();
+
+        database.createSuperhero(heltenavn, ægtenavn, årstal, superkraft, human, power);
     }
 
     public void listeMenu() {
@@ -55,7 +58,6 @@ public class Controller {
             }
         }
     }
-
     public void redigerHelt() {
         System.out.println("Indtast navnet på den superhelt du ønsker at redigere:");
         String searchTerm = scanner.next();

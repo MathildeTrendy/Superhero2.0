@@ -7,13 +7,15 @@ public class Superhero {
     private int årstal;
     private String superkraft;
     private boolean human;
+    private double power;
 
-    public Superhero(String helteNavn, String ægteNavn, int årstal, String superkraft, boolean human) {
+    public Superhero(String helteNavn, String ægteNavn, int årstal, String superkraft, boolean human, double power) {
         this.helteNavn = helteNavn;
         this.ægteNavn = ægteNavn;
         this.årstal = årstal;
         this.superkraft = superkraft;
         this.human = human;
+        this.power=power;
     }
 
     public Superhero() {
