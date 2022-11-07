@@ -41,7 +41,7 @@ public class Superhero {
     public boolean getHuman() {
         return human;
     }
-    public double getPower() {
+    public double getStrength() {
         return strength;
     }
 
@@ -64,7 +64,7 @@ public class Superhero {
     public void setHuman(boolean human) {
         this.human = human;
     }
-    public void setPower(double strength){
+    public void setStrength(double strength){
         this.strength=strength;
     }
 
