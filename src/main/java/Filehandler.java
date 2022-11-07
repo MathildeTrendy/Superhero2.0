@@ -58,4 +58,12 @@ public class Filehandler {
 
         return helteData;
     }
+
+
+
+
+
+
+
+
 }
