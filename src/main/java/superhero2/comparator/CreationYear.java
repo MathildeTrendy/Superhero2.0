@@ -1,6 +1,6 @@
-package Comparator;
+package superhero2.comparator;
 
-import Data.Superhero;
+import superhero2.Superhero;
 
 import java.util.Comparator;
 

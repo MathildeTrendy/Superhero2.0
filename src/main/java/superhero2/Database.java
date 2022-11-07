@@ -1,4 +1,4 @@
-import Data.Superhero;
+package superhero2;
 
 import java.util.ArrayList;
 
@@ -32,9 +32,9 @@ public class Database {
         succes = superheroesDB.remove(superhero);
         return succes;
 
-   /* Data.Superhero[] superhero = {}
+   /* superhero2.Superhero[] superhero = {}
         Array.sort(superheros, new NameComparator());
-        System.out.println("Data.Superhero List - Sorteret efter navn" + superheroes);
+        System.out.println("superhero2.Superhero List - Sorteret efter navn" + superheroes);
 
 }/*
 

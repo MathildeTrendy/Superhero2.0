@@ -1,4 +1,4 @@
-package Data;
+package superhero2;
 
 public class Superhero {
 

@@ -1,11 +1,10 @@
-import Data.Superhero;
-
+package superhero2;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Filehandler {
-    private String path = "src/main/java/Data/Superheroes.csv";
+    private String path = "Data/Superheroes.csv";
     public ArrayList<Superhero> loadData() throws FileNotFoundException {
         Scanner Scan = new Scanner(new File(path));
 
