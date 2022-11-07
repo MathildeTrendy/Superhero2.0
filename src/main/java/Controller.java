@@ -39,7 +39,6 @@ public class Controller {
 
         }
     }
-
     public void søgHelt() {
         System.out.println("---------------------------------\nSøg efter superhelt:");
 
