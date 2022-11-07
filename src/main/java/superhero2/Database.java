@@ -23,6 +23,7 @@ public class Database {
         }
         return searchResult;
     }
+
     public ArrayList<Superhero> getAllSuperHeroes() {
         return superheroesDB;
     }
