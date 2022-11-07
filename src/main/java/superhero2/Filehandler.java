@@ -34,13 +34,13 @@ public class Filehandler {
 
         //navn;ægtenavn;
         for (Superhero superhero : superheroes) {
-            output.print(superhero.getHelteNavn());
+            output.print(superhero.getHeroName());
             output.print(";");
-            output.print(superhero.getÆgteNavn());
+            output.print(superhero.getHeroName());
             output.print(";");
-            output.print(superhero.getÅrstal());
+            output.print(superhero.getCreationYear());
             output.print(";");
-            output.print(superhero.getSuperkraft());
+            output.print(superhero.getSuperpower());
             output.print(";");
             output.print(superhero.getHuman());
             output.println();
@@ -52,12 +52,12 @@ public class Filehandler {
 
         Superhero helteData = new Superhero();
 
-        helteData.setHelteNavn(splits[0]);
-        helteData.setÆgteNavn(splits[1]);
+        helteData.setHeroName(splits[0]);
+        helteData.setHeroName(splits[1]);
 
         int Årstal = Integer.parseInt(splits[2]);
 
-        helteData.setSuperkraft(splits[3]);
+        helteData.setSuperpower(splits[3]);
 
         boolean human = Boolean.parseBoolean(splits[4]);
         helteData.setHuman(human);
@@ -134,4 +134,8 @@ public class Filehandler {
                 }
             } while (isRunning);
         }
-    }}
+    }
+
+    public void saveData(ArrayList<Superhero> allSuperHeroes) {
+    }
+}

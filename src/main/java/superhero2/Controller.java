@@ -47,140 +47,138 @@ public class Controller {
     public void searchHero() {
         System.out.println("---------------------------------\nSearch superhero:");
 
-    public void søgHelt() {
-        System.out.println("---------------------------------\nSøg efter superhelt:");
+            System.out.println("Type the name of the superhero you'll like to search for");
+            String searchTerm = scanner.next();
+            ArrayList<Superhero> searchResult = database.searchFor(searchTerm);
 
-        System.out.println("Type the name of the superhero you'll like to search for");
-        String searchTerm = scanner.next();
-        ArrayList<Superhero> searchResult = database.searchFor(searchTerm);
+            if (searchResult.isEmpty()) {
+                System.out.println("No superheroes found");
 
-        if (searchResult.isEmpty()) {
-            System.out.println("No superheroes found");
-
-        } else {
-            System.out.println("Superheroes found: ");
-            for (Superhero superhero : searchResult) {
-                System.out.println(superhero);
+            } else {
+                System.out.println("Superheroes found: ");
+                for (Superhero superhero : searchResult) {
+                    System.out.println(superhero);
+                }
             }
         }
-    }
-    public void editHero() {
-        System.out.println("Add name of superhero you want to edit:");
-        String searchTerm = scanner.next();
-        ArrayList<Superhero> searchResult = database.searchFor(searchTerm);
+        public void editHero () {
+            System.out.println("Add name of superhero you want to edit:");
+            String searchTerm = scanner.next();
+            ArrayList<Superhero> searchResult = database.searchFor(searchTerm);
 
-        if (searchResult.isEmpty()) {
-            System.out.println("No superheroes found.");
+            if (searchResult.isEmpty()) {
+                System.out.println("No superheroes found.");
 
-        } else {
-            System.out.println("Superheroes found: ");
-            for (int i = 0; i < searchResult.size(); i++) {
-                System.out.println(((i) + 1) + ") " + searchResult.get(i));
-            }
-            System.out.println("\nWhich number of the superheroes would you like to edit?:");
-            int number = scanner.nextInt();
-            scanner.nextLine();
-            Superhero hero = searchResult.get(number - 1);
-
-
-            System.out.println("Type the new superheroName or press 'enter' to keep present name:");
-            String heroName = scanner.nextLine();
-
-            if (!heroName.isEmpty()) {
-                hero.setHeroName(heroName);
-            }
-            System.out.println("Type the new name or press enter:");
-            String realName = scanner.nextLine();
-
-            if (!realName.isEmpty()) {
-                hero.setRealName(realName);
-            }
-
-            System.out.println("Type the new superpower or press enter:");
-            String superpower = scanner.nextLine();
-
-            if (!superpower.isEmpty()) {
-                hero.setSuperpower(superpower);
-            }
+            } else {
+                System.out.println("Superheroes found: ");
+                for (int i = 0; i < searchResult.size(); i++) {
+                    System.out.println(((i) + 1) + ") " + searchResult.get(i));
+                }
+                System.out.println("\nWhich number of the superheroes would you like to edit?:");
+                int number = scanner.nextInt();
+                scanner.nextLine();
+                Superhero hero = searchResult.get(number - 1);
 
 
-            boolean writingError = false;
-            do {
-                try {
-                    System.out.println("Write creationYear for your superhero:");
-                    String creationYear = scanner.nextLine();
-                    if (!creationYear.isEmpty()) {
-                        hero.setCreationYear(Integer.parseInt(creationYear));
-                    }
-                    writingError = false;
+                System.out.println("Type the new superheroName or press 'enter' to keep present name:");
+                String heroName = scanner.nextLine();
 
-                } catch (NumberFormatException e) {
-                    System.out.println("Error - Try again.");
-                    writingError = true;
+                if (!heroName.isEmpty()) {
+                    hero.setHeroName(heroName);
+                }
+                System.out.println("Type the new name or press enter:");
+                String realName = scanner.nextLine();
+
+                if (!realName.isEmpty()) {
+                    hero.setRealName(realName);
                 }
 
-            } while (writingError == true);
+                System.out.println("Type the new superpower or press enter:");
+                String superpower = scanner.nextLine();
 
-            System.out.println("Superhero changed to:\n " + hero);
+                if (!superpower.isEmpty()) {
+                    hero.setSuperpower(superpower);
+                }
+
+
+                boolean writingError = false;
+                do {
+                    try {
+                        System.out.println("Write creationYear for your superhero:");
+                        String creationYear = scanner.nextLine();
+                        if (!creationYear.isEmpty()) {
+                            hero.setCreationYear(Integer.parseInt(creationYear));
+                        }
+                        writingError = false;
+
+                    } catch (NumberFormatException e) {
+                        System.out.println("Error - Try again.");
+                        writingError = true;
+                    }
+
+                } while (writingError == true);
+
+                System.out.println("Superhero changed to:\n " + hero);
+            }
+        }
+
+        public void loadData () throws FileNotFoundException {
+            Filehandler filehandler = new Filehandler();
+            ArrayList<Superhero> superheroes = filehandler.loadData();
+            database.updateSuperheroList(superheroes);
+        }
+
+        public void saveData () throws FileNotFoundException {
+            Filehandler filehandler = new Filehandler();
+            filehandler.saveData(database.getAllSuperHeroes());
+            loadData();
+        }
+
+        public void deleteHero () {
+
+            System.out.println("Search for a hero, you'll like to be removed from the database:");
+            String searchTerm = scanner.next();
+            ArrayList<Superhero> searchResult = database.searchFor(searchTerm);
+
+            if (searchResult.isEmpty()) {
+                System.out.println("No superhero(es) found.\n");
+
+            } else {
+                System.out.println("Superhero(es) found: ");
+                for (int i = 0; i < searchResult.size(); i++) {
+                    System.out.println(((i) + 1) + ") " + searchResult.get(i));
+                }
+                System.out.println("\nWhich number of the superheroes, would you du like to remove?:");
+                int number = scanner.nextInt();
+                scanner.nextLine();
+                Superhero superhero = searchResult.get(number - 1);
+
+                System.out.println("Are you sure, you want to delete the superhero? (true/false): ");
+                boolean delete = scanner.nextBoolean();
+                if (delete == true) {
+                    database.deleteSuperhero(superhero);
+
+                    System.out.println("Superhero deleted from database.");
+
+                } else if (delete == false) {
+                    System.out.println("Wont delete superhero.");
+
+
+                }
+            }
         }
     }
 
-    public void loadData() throws FileNotFoundException {
-        Filehandler filehandler = new Filehandler();
-        ArrayList<Superhero> superheroes = filehandler.loadData();
-        database.updateSuperheroList(superheroes);
+    /*public void createSuperHero() {
+
     }
 
-    public void gemData() throws FileNotFoundException {
-        Filehandler filehandler = new Filehandler();
-        filehandler.gemData(database.getAllSuperHeroes());
-        loadData();
+    public void sortedList() { Filehandler filehandler = new Filehandler();
+                    filehandler.SortedList();
+
+
     }
-
-    public void deleteHero() {
-
-        System.out.println("Search for a hero, you'll like to be removed from the database:");
-        String searchTerm = scanner.next();
-        ArrayList<Superhero> searchResult = database.searchFor(searchTerm);
-
-        if (searchResult.isEmpty()) {
-            System.out.println("No superhero(es) found.\n");
-
-        } else {
-            System.out.println("Superhero(es) found: ");
-            for (int i = 0; i < searchResult.size(); i++) {
-                System.out.println(((i) + 1) + ") " + searchResult.get(i));
-            }
-            System.out.println("\nWhich number of the superheroes, would you du like to remove?:");
-            int number = scanner.nextInt();
-            scanner.nextLine();
-            Superhero superhero = searchResult.get(number - 1);
-
-            System.out.println("Are you sure, you want to delete the superhero? (true/false): ");
-            boolean delete = scanner.nextBoolean();
-            if (delete == true) {
-                database.deleteSuperhero(superhero);
-
-                System.out.println("Superhero deleted from database.");
-
-            } else if (delete == false) {
-                System.out.println("Wont delete superhero.");
-
-            }
-        }
-    }
-
-    public void sortedList() {
-        Filehandler filehandler = new Filehandler();
-        filehandler.SortedList();
-    }
-
-    public void createSuperHero() {
-    }
-
-    public void saveData() {
-    }
-}
+}*/
 
 
 

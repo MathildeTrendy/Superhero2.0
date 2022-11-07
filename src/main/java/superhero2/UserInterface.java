@@ -13,19 +13,8 @@ public class UserInterface {
     public void startMenu() throws IOException {
 
         do {
-
-            System.out.println("--------------------------------- \n Velkommen til superhelteverdenen!");
-            System.out.println("--------------------------------- \n Welcome to the Superhero World!");
+            System.out.println("--------------------------------- \n Welcome to the world of Superheroes!");
             System.out.println("---------------------------------");
-            System.out.println(" 1) Opret ny superhelt \n " +
-                    "2) Vis alle superhelte \n " +
-                    "3) Vis sortet liste \n " +
-                    "3) Søg efter superhelt  \n " +
-                    "4) Redigér helt \n " +
-                    "5) Slet helt \n " +
-                    "6) Gem helt \n " +
-                    "7) load data \n " +
-                    "9) Luk databasen \n ---------------------------------");
             System.out.println(" 1) Create new superhero \n " +
                     "2) Show all superheroes \n " +
                     "3) Search superhero  \n " +
@@ -39,7 +28,7 @@ public class UserInterface {
             int valg = scanner.nextInt();
             scanner.nextLine();
             if (valg == 1) {
-                controller.createSuperHero();//??
+                controller.createSuperHero();
             } else if (valg == 2) {
                 controller.listeMenu();
             } else if (valg == 3) {
@@ -50,8 +39,18 @@ public class UserInterface {
             } else if (valg == 5) {
                 controller.deleteHero();
             } else if (valg == 6) {
-                controller.saveData(); //??
-            } /*else if (valg == 7){
+                controller.saveData();
+            }
+
+
+        }while (valg != 9);
+
+
+    }
+
+}
+
+        /*else if (valg == 7){
                 controller.søgHelt();
             } else if (valg == 5) {
                 controller.redigerHelt();
@@ -68,5 +67,6 @@ public class UserInterface {
             }
 
         } while (valg != 9);
-    }
-}
+
+
+}*/
