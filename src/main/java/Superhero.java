@@ -14,6 +14,10 @@ public class Superhero {
         this.human = human;
     }
 
+    public Superhero() {
+
+    }
+
     public String getHelteNavn() {
         return helteNavn;
     }

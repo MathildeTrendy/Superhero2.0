@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,7 +8,7 @@ import java.util.Scanner;
 public class Controller {
     Scanner scanner = new Scanner(System.in);
     private Database database = new Database();
-    private final String fileName = "superheros.txt";
+    private final String fileName = "Superheros.csv";
 
     public void opretSuperheroMenu() {
 
@@ -118,10 +119,12 @@ public class Controller {
         }
     }
 
-    public void loadData() throws FileNotFoundException {
+    public void loadData() throws IOException {
         Filehandler filehandler = new Filehandler();
-        filehandler.LoadData(database.getAllSuperHeroes());
+        filehandler.loadData(database.getAllSuperHeroes());
     }
+
+
     public void gemData() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
         filehandler.gemData(database.getAllSuperHeroes());

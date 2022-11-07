@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -8,11 +10,18 @@ public class UserInterface {
     int menuvalg;
     int valg;
 
-    public void startMenu() {
+    public void startMenu() throws IOException {
         do {
             System.out.println("--------------------------------- \n Velkommen til superhelteverdenen!");
             System.out.println("---------------------------------");
-            System.out.println(" 1) Opret ny superhelt \n 2) Vis alle superhelte \n 3) Søg efter superhelt  \n 4) Redigér helt \n 5) Slet helt \n 6) Gem helt  \n 9) Luk databasen \n ---------------------------------");
+            System.out.println(" 1) Opret ny superhelt \n " +
+                    "2) Vis alle superhelte \n " +
+                    "3) Søg efter superhelt  \n " +
+                    "4) Redigér helt \n " +
+                    "5) Slet helt \n " +
+                    "6) Gem helt \n " +
+                    "7) load data \n " +
+                    "9) Luk databasen \n ---------------------------------");
 
 
             int valg = scanner.nextInt();
@@ -28,7 +37,9 @@ public class UserInterface {
             } else if (valg == 5) {
                 controller.sletHelt();
             } else if (valg == 6) {
-                controller.gemHelt();
+                controller.gemData();
+            } else if (valg == 7){
+                controller.loadData();
             } else if (valg == 9) {
                 System.exit(0);
             }
