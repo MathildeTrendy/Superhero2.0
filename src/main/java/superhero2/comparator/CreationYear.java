@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class CreationYear implements Comparator<Superhero> {
     public int compare( Superhero a1, Superhero a2) {
-        return a1.getÅrstal() - (a2.getÅrstal());
+        return a1.getCreationYear() - (a2.getCreationYear());
     }
 }
 

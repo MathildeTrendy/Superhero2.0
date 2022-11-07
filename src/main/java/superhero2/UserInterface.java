@@ -13,32 +13,32 @@ public class UserInterface {
     public void startMenu() throws IOException {
         controller.loadData();
         do {
-            System.out.println("--------------------------------- \n Velkommen til superhelteverdenen!");
+            System.out.println("--------------------------------- \n Welcome to the Superhero World!");
             System.out.println("---------------------------------");
-            System.out.println(" 1) Opret ny superhelt \n " +
-                    "2) Vis alle superhelte \n " +
-                    "3) Søg efter superhelt  \n " +
-                    "4) Redigér helt \n " +
-                    "5) Slet helt \n " +
-                    "6) Gem helt \n " +
-                    "7) load data \n " +
-                    "9) Luk databasen \n ---------------------------------");
+            System.out.println(" 1) Create new superhero \n " +
+                    "2) Show all superheroes \n " +
+                    "3) Search superhero  \n " +
+                    "4) Edit hero \n " +
+                    "5) Delete hero \n " +
+                    "6) Save hero \n " +
+                    "7) Load data \n " +
+                    "9) Exit database \n ---------------------------------");
 
 
             int valg = scanner.nextInt();
             scanner.nextLine();
             if (valg == 1) {
-                controller.opretSuperheroMenu();
+                controller.createSuperHero();//??
             } else if (valg == 2) {
                 controller.listeMenu();
             } else if (valg == 3) {
-                controller.søgHelt();
+                controller.searchHero();
             } else if (valg == 4) {
-                controller.redigerHelt();
+                controller.editHero();
             } else if (valg == 5) {
-                controller.sletHelt();
+                controller.deleteHero();
             } else if (valg == 6) {
-                controller.gemData();
+                controller.saveData(); //??
             } /*else if (valg == 7){
                 controller.loadData();
             }*/ else if (valg == 9) {

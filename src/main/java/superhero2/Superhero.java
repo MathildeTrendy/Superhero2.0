@@ -2,40 +2,40 @@ package superhero2;
 
 public class Superhero {
 
-    private String helteNavn;
-    private String ægteNavn;
-    private int årstal;
-    private String superkraft;
+    private String heroName;
+    private String realName;
+    private int creationYear;
+    private String superpower;
     private boolean human;
     private double strength;
 
-    public Superhero(String helteNavn, String ægteNavn, int årstal, String superkraft, boolean human, double strength) {
-        this.helteNavn = helteNavn;
-        this.ægteNavn = ægteNavn;
-        this.årstal = årstal;
-        this.superkraft = superkraft;
+    public Superhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
+        this.heroName = heroName;
+        this.realName = realName;
+        this.creationYear = creationYear;
+        this.superpower = superpower;
         this.human = human;
-        this.strength=strength;
+        this.strength  =strength;
     }
 
     public Superhero() {
 
     }
 
-    public String getHelteNavn() {
-        return helteNavn;
+    public String getHeroName() {
+        return heroName;
     }
 
-    public String getÆgteNavn() {
-        return ægteNavn;
+    public String getRealName() {
+        return realName;
     }
 
-    public int getÅrstal() {
-        return årstal;
+    public int getCreationYear() {
+        return creationYear;
     }
 
-    public String getSuperkraft() {
-        return superkraft;
+    public String getSuperpower() {
+        return superpower;
     }
 
     public boolean getHuman() {
@@ -45,20 +45,20 @@ public class Superhero {
         return strength;
     }
 
-    public void setHelteNavn(String helteNavn) {
-        this.helteNavn = helteNavn;
+    public void setHeroName(String heroName) {
+        this.heroName = heroName;
     }
 
-    public void setÆgteNavn(String ægteNavn) {
-        this.ægteNavn = ægteNavn;
+    public void setRealName(String realName) {
+        this.realName = realName;
     }
 
-    public void setÅrstal(int årstal) {
-        this.årstal = årstal;
+    public void setCreationYear(int creationYear) {
+        this.creationYear = creationYear;
     }
 
-    public void setSuperkraft(String superkraft) {
-        this.superkraft = superkraft;
+    public void setSuperpower (String superpower) {
+        this.superpower = superpower;
     }
 
     public void setHuman(boolean human) {
@@ -71,10 +71,10 @@ public class Superhero {
     @Override
     public String toString() {
         return "Superhero{" +
-                "helteNavn='" + helteNavn + '\'' +
-                ", ægteNavn='" + ægteNavn + '\'' +
-                ", årstal=" + årstal +
-                ", superkraft='" + superkraft + '\'' +
+                "heroName='" + heroName + '\'' +
+                ", realName='" + realName + '\'' +
+                ", creationYear=" + creationYear +
+                ", superpower='" + superpower + '\'' +
                 ", human=" + human +
                 ", strength=" + strength +
                 '}';
