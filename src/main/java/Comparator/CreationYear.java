@@ -1,17 +1,12 @@
 package Comparator;
 
-import java.util.Comparator;
-
-public class CreationYear {
-    package Comparator;
+import Data.Superhero;
 
 import java.util.Comparator;
 
-    public class CreationYear implements Comparator Superhero {
-        public int compare(Superhero s1, Superhero s2) {
-            return s1.getCreationYear().compareTo(s2.getName));
-
-        }
-
+public class CreationYear implements Comparator<Superhero> {
+    public int compare( Superhero a1, Superhero a2) {
+        return a1.getÅrstal() - (a2.getÅrstal());
     }
 }
+
