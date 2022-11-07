@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Controller {
     Scanner scanner = new Scanner(System.in);
     private Database database = new Database();
-    private final String fileName = "Superheros.csv";
 
     public void opretSuperheroMenu() {
 
