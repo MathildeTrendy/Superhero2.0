@@ -167,9 +167,8 @@ public class Controller {
                 }
             }
         }
-    }
 
-    /*public void createSuperHero() {
+    public void createSuperHero() {
 
     }
 
@@ -178,7 +177,7 @@ public class Controller {
 
 
     }
-}*/
+}
 
 
 
