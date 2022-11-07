@@ -121,13 +121,15 @@ public class Controller {
 
     public void loadData() throws IOException {
         Filehandler filehandler = new Filehandler();
-        filehandler.loadData(database.getAllSuperHeroes());
+        ArrayList<Superhero> superheroes= filehandler.loadData();
+        database.updateSuperheroList(superheroes);
     }
 
 
-    public void gemData() throws FileNotFoundException {
+    public void gemData() throws IOException {
         Filehandler filehandler = new Filehandler();
         filehandler.gemData(database.getAllSuperHeroes());
+        loadData();
     }
 
     public void sletHelt() {

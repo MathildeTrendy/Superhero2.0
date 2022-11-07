@@ -39,6 +39,10 @@ public class Database {
 
     */
     }
+
+    public void updateSuperheroList(ArrayList<Superhero> superheroes) {
+        superheroesDB = superheroes;
+    }
 }
 
 
