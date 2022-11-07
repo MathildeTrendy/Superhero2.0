@@ -40,6 +40,8 @@ public class Controller {
 
         }
     }
+    public void showSortedList() {
+    }
     public void søgHelt() {
         System.out.println("---------------------------------\nSøg efter superhelt:");
 
@@ -117,20 +119,16 @@ public class Controller {
             System.out.println("Superhelt ændret til:\n " + hero);
         }
     }
-
     public void loadData() throws IOException {
         Filehandler filehandler = new Filehandler();
         ArrayList<Superhero> superheroes= filehandler.loadData();
         database.updateSuperheroList(superheroes);
     }
-
-
     public void gemData() throws IOException {
         Filehandler filehandler = new Filehandler();
         filehandler.gemData(database.getAllSuperHeroes());
         loadData();
     }
-
     public void sletHelt() {
 
         System.out.println("Søg efter den helt du vil slette fra databasen:");
@@ -163,6 +161,7 @@ public class Controller {
             }
         }
     }
+
 }
 
 
