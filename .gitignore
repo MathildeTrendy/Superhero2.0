@@ -1,4 +1,4 @@
-Data/
+data/
 
 # Created by https://www.toptal.com/developers/gitignore/api/intellij,maven
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij,maven
@@ -13,6 +13,7 @@ Data/
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/
 
 # AWS User-specific
 .idea/**/aws.xml
