@@ -50,20 +50,20 @@ public class Filehandler {
     private Superhero splitLines(String linje) {
         String[] splits = linje.split(";");
 
-        Superhero helteData = new Superhero();
+        Superhero heroData = new Superhero();
 
-        helteData.setHeroName(splits[0]);
-        helteData.setRealName(splits[1]);
+        heroData.setHeroName(splits[0]);
+        heroData.setRealName(splits[1]);
 
         int Årstal = Integer.parseInt(splits[2]);
 
-        helteData.setSuperpower(splits[3]);
+        heroData.setSuperpower(splits[3]);
 
         boolean human = Boolean.parseBoolean(splits[4]);
-        helteData.setHuman(human);
+        heroData.setHuman(human);
         Double Strength = Double.parseDouble(splits[5]);
 
-        return helteData;
+        return heroData;
     }
 
     }

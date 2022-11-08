@@ -33,7 +33,11 @@ public class Controller {
         System.out.println("Type superhero strength");
         double strenght = scanner.nextInt();
 
-        database.createSuperhero(heroName, realName, creationYear, superpower, human, strenght);
+        // TODO: Kald controller.create med alle parametre
+    }
+
+    public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
+        database.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
     }
 
     public void listeMenu() {
@@ -170,7 +174,7 @@ public class Controller {
 
     public void sortedList() {
         Filehandler filehandler = new Filehandler();
-        filehandler.SortedList();
+    //    filehandler.SortedList();
     }
 }
 

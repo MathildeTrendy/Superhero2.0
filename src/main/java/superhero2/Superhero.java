@@ -63,7 +63,10 @@ public class Superhero {
 
     public void setHuman(boolean human) {
         this.human = human;
-    }
+    } //test, om der kan skrives andet end true og false
+
+
+
     public void setStrength(double strength){
         this.strength=strength;
     }

@@ -26,7 +26,7 @@ public class UserInterface {
             int valg = scanner.nextInt();
             scanner.nextLine();
             if (valg == 1) {
-                controller.createSuperHero();
+             //   controller.createSuperHero();
             } else if (valg == 2) {
                 controller.listeMenu();
             } else if (valg == 3) {
