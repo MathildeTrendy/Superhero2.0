@@ -1,5 +1,4 @@
 package superhero2;
-
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -7,7 +6,6 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in);
     Controller controller = new Controller();
 
-    int menuvalg;
     int valg;
 
     public void startMenu() throws IOException {
@@ -33,14 +31,19 @@ public class UserInterface {
                 controller.listeMenu();
             } else if (valg == 3) {
                 controller.searchHero();
+            }else if (valg == 4) {
                 controller.sortedList(); //Sorted list by users choice
-            } else if (valg == 4) {
-                controller.editHero();
             } else if (valg == 5) {
-                controller.deleteHero();
+                controller.editHero();
             } else if (valg == 6) {
+                controller.deleteHero();
+            } else if (valg == 7){
                 controller.saveData();
-            }
+            } else if (valg == 8) {
+            controller.loadData();
+            } else if (valg == 9) {
+            System.exit(0);
+        }
 
 
         }while (valg != 9);
@@ -49,24 +52,3 @@ public class UserInterface {
     }
 
 }
-
-        /*else if (valg == 7){
-                controller.søgHelt();
-            } else if (valg == 5) {
-                controller.redigerHelt();
-            } else if (valg == 6) {
-                controller.sletHelt();
-            } else if (valg == 7) {
-                controller.gemData();
-            } else if (valg == 8) {
-                controller.loadData();
-            } else if (valg == 9) {
-
-            } else if (valg == 10) {
-                System.exit(0);
-            }
-
-        } while (valg != 9);
-
-
-}*/
