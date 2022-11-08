@@ -24,6 +24,7 @@ public class UserInterface {
                     "8) Load data \n " +
                     "9) Exit database \n ---------------------------------");
 
+
             int valg = scanner.nextInt();
             scanner.nextLine();
 
@@ -76,7 +77,11 @@ public class UserInterface {
             } else if (valg == 9) {
             System.exit(0);
         }
+
+
         }while (valg != 9);
 
+
     }
+
 }
