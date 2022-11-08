@@ -41,7 +41,7 @@ public class Filehandler {
             output.print(superhero.getSuperpower());
             output.print(";");
             output.print(superhero.getHuman());
-            output.println();
+            output.print(";");
             output.print(superhero.getStrength());
             output.println();
         }
@@ -54,14 +54,11 @@ public class Filehandler {
 
         heroData.setHeroName(splits[0]);
         heroData.setRealName(splits[1]);
-
-        int Årstal = Integer.parseInt(splits[2]);
-
+        int CreationYear = Integer.parseInt(splits[2]);
         heroData.setSuperpower(splits[3]);
-
         boolean human = Boolean.parseBoolean(splits[4]);
-        heroData.setHuman(human);
         Double Strength = Double.parseDouble(splits[5]);
+        heroData.setHuman(human);
 
         return heroData;
     }
