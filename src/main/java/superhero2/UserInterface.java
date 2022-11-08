@@ -7,7 +7,7 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
     Controller controller = new Controller();
 
-    int valg;
+    int choice;
 
     public void startMenu() throws IOException {
 
@@ -15,7 +15,7 @@ public class UserInterface {
             System.out.println("--------------------------------- \n Welcome to the world of Superheroes!");
             System.out.println("---------------------------------");
             System.out.println(" 1) Create new superhero \n " +
-                    "2) Show all superheroes \n " +
+                    "2) View list of all superheroes \n " +
                     "3) Search superhero  \n " +
                     "4) Sorted list of heroes \n " +
                     "5) Edit hero \n " +
@@ -24,29 +24,29 @@ public class UserInterface {
                     "8) Load data \n " +
                     "9) Exit database \n ---------------------------------");
 
-            int valg = scanner.nextInt();
+            int choice = scanner.nextInt();
             scanner.nextLine();
 
-            if (valg == 1) {
+            if (choice == 1) {
                 controller.createSuperhero();
-            } else if (valg == 2) {
+            } else if (choice == 2) {
                 controller.listeMenu();
-            } else if (valg == 3) {
+            } else if (choice == 3) {
                 controller.searchHero();
-            }else if (valg == 4) {
+            }else if (choice == 4) {
                 controller.sortedList(); //Sorted list by users choice
-            } else if (valg == 5) {
+            } else if (choice == 5) {
                 controller.editHero();
-            } else if (valg == 6) {
+            } else if (choice == 6) {
                 controller.deleteHero();
-            } else if (valg == 7){
+            } else if (choice == 7){
                 controller.saveData();
-            } else if (valg == 8) {
+            } else if (choice == 8) {
             controller.loadData();
-            } else if (valg == 9) {
+            } else if (choice == 9) {
             System.exit(0);
         }
-        }while (valg != 9);
+        }while (choice != 9);
 
     }
 }
