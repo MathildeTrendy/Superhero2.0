@@ -13,7 +13,7 @@ public class Filehandler {
     public ArrayList<Superhero> loadData () throws FileNotFoundException {
         Scanner Scan = new Scanner(new File(path));
 
-        ArrayList<Superhero> superheroesforfsake = new ArrayList<>();
+        ArrayList<Superhero> superheroes = new ArrayList<>();
 
         //Scan.nextLine();
 
@@ -23,26 +23,28 @@ public class Filehandler {
 
             Superhero heroObject = splitLines(line);
 
-            superheroesforfsake.add(heroObject);
+            superheroes.add(heroObject);
         }
-        return superheroesforfsake;
+        return superheroes;
     }
 
-    public void gemData(ArrayList<Superhero> superheroes) throws FileNotFoundException {
+    public void saveData(ArrayList<Superhero> superheroes) throws FileNotFoundException {
 
         PrintStream output = new PrintStream(new File(path));
 
         //navn;ægtenavn;
         for (Superhero superhero : superheroes) {
-            output.print(superhero.getHeroName());
+            output.print(superhero.getHelteNavn());
             output.print(";");
-            output.print(superhero.getHeroName());
+            output.print(superhero.getÆgteNavn());
             output.print(";");
-            output.print(superhero.getCreationYear());
+            output.print(superhero.getÅrstal());
             output.print(";");
-            output.print(superhero.getSuperpower());
+            output.print(superhero.getSuperkraft());
             output.print(";");
             output.print(superhero.getHuman());
+            output.println();
+            output.print(superhero.getStrength());
             output.println();
         }
     }
@@ -52,90 +54,18 @@ public class Filehandler {
 
         Superhero helteData = new Superhero();
 
-        helteData.setHeroName(splits[0]);
-        helteData.setHeroName(splits[1]);
+        helteData.setHelteNavn(splits[0]);
+        helteData.setÆgteNavn(splits[1]);
 
         int Årstal = Integer.parseInt(splits[2]);
 
-        helteData.setSuperpower(splits[3]);
+        helteData.setSuperkraft(splits[3]);
 
         boolean human = Boolean.parseBoolean(splits[4]);
         helteData.setHuman(human);
+        Double Strenght = Double.parseDouble(splits[5]);
 
         return helteData;
     }
 
-    //Sort entries, using Arraylist of superheroes
-    // Collections.sort(ar, new Sortbyroll());
-    /*public void sort(){
-        Collections.sort(superheroesforfsake, new NameComparator());
-        Collections.sort(superheroes, new Strength());
-        Collections.sort(superheroes, new SuperheroName());
-        Collections.sort(superheroes, new SuperPower());
-        Collections.sort(superheroes, new CreationYear());
-        Collections.sort(superheroes, new Human());
     }
-*/
-    public void SortedList() {
-        Scanner scanner = new Scanner(System.in);
-        int userInput = 0;
-        boolean isRunning = true;
-
-        while (userInput != 7) {
-            System.out.println("Chose how you would like to sort your list:");
-            System.out.println("1) by superhero name");
-            System.out.println("2) by real name");
-            System.out.println("3) by year of origin");
-            System.out.println("4) by type of superpowers");
-            System.out.println("5) by strenght of superhero");
-            System.out.println("6) by human status");
-            System.out.println("7) Quit to main menu");
-
-            do {
-                userInput = scanner.nextInt();
-                scanner.nextLine();
-
-                switch (userInput) {
-                    case 1 -> {
-                        System.out.println("Superheroes by name: ");
-
-                    }
-
-                    case 2 -> {
-                        System.out.println("Superheroes by real name: ");
-
-                    }
-
-                    case 3 -> {
-                        System.out.println("Superheroes by year of origin: ");
-                    }
-
-                    case 4 -> {
-                        System.out.println("Superheroes by type of superpowers: ");
-                    }
-
-                    case 5 -> {
-                        System.out.println("Superheroes by strenght: ");
-                    }
-
-                    case 6 -> {
-                        System.out.println("Superheroes by human status: ");
-                    }
-
-                    case 7 -> {
-                        System.out.println("Returning to main menu");
-                        isRunning = false;
-                    }
-
-                    default -> {
-                        System.out.println("I don't understand that command, which type of sorted list would you like?");
-                        System.out.println("If you wish to return to menu, type 7");
-                    }
-                }
-            } while (isRunning);
-        }
-    }
-
-    public void saveData(ArrayList<Superhero> allSuperHeroes) {
-    }
-}
