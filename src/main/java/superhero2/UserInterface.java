@@ -89,7 +89,7 @@ public class UserInterface {
                 boolean isRunning = true;
 
                 while (userInput != 7) {
-                    System.out.println("Choose how you would like to sort your list:");
+                    System.out.println("Choose how you would like to sort your heroes: ");
                     System.out.println("1) by superhero name");
                     System.out.println("2) by real name");
                     System.out.println("3) by year of origin");
