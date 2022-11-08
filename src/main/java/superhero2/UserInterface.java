@@ -24,9 +24,9 @@ public class UserInterface {
                     "8) Load data \n " +
                     "9) Exit database \n ---------------------------------");
 
-
             int valg = scanner.nextInt();
             scanner.nextLine();
+
             if (valg == 1) {
                 controller.createSuperhero();
             } else if (valg == 2) {
@@ -48,7 +48,5 @@ public class UserInterface {
         }
         }while (valg != 9);
 
-
     }
-
 }

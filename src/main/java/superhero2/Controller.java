@@ -134,7 +134,7 @@ public class Controller {
     public void saveData() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
         filehandler.saveData(database.getAllSuperHeroes());
-        loadData();
+        //loadData();
     }
 
     public void deleteHero() {
