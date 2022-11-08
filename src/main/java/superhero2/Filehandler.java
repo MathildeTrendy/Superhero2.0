@@ -15,8 +15,6 @@ public class Filehandler {
 
         ArrayList<Superhero> superheroes = new ArrayList<>();
 
-        //Scan.nextLine();
-
         while (Scan.hasNextLine()) {
             String line = Scan.nextLine();
             System.out.println(line);
@@ -34,13 +32,13 @@ public class Filehandler {
 
         //navn;ægtenavn;
         for (Superhero superhero : superheroes) {
-            output.print(superhero.getHelteNavn());
+            output.print(superhero.getHeroName());
             output.print(";");
-            output.print(superhero.getÆgteNavn());
+            output.print(superhero.getRealName());
             output.print(";");
-            output.print(superhero.getÅrstal());
+            output.print(superhero.getCreationYear());
             output.print(";");
-            output.print(superhero.getSuperkraft());
+            output.print(superhero.getSuperpower());
             output.print(";");
             output.print(superhero.getHuman());
             output.println();
@@ -54,16 +52,16 @@ public class Filehandler {
 
         Superhero helteData = new Superhero();
 
-        helteData.setHelteNavn(splits[0]);
-        helteData.setÆgteNavn(splits[1]);
+        helteData.setHeroName(splits[0]);
+        helteData.setRealName(splits[1]);
 
         int Årstal = Integer.parseInt(splits[2]);
 
-        helteData.setSuperkraft(splits[3]);
+        helteData.setSuperpower(splits[3]);
 
         boolean human = Boolean.parseBoolean(splits[4]);
         helteData.setHuman(human);
-        Double Strenght = Double.parseDouble(splits[5]);
+        Double Strength = Double.parseDouble(splits[5]);
 
         return helteData;
     }
