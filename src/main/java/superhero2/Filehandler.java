@@ -10,13 +10,13 @@ import java.util.Scanner;
 
 public class Filehandler {
     private String path = "data/Superheroes.csv";
-    public ArrayList<Superhero> loadData () throws FileNotFoundException {
-        Scanner Scan = new Scanner(new File(path));
 
+    public ArrayList<Superhero> loadData() throws FileNotFoundException {
+        Scanner scan = new Scanner(new File(path));
         ArrayList<Superhero> superheroes = new ArrayList<>();
 
-        while (Scan.hasNextLine()) {
-            String line = Scan.nextLine();
+        while (scan.hasNextLine()) {
+            String line = scan.nextLine();
             System.out.println(line);
 
             Superhero heroObject = splitLines(line);
@@ -40,7 +40,7 @@ public class Filehandler {
             output.print(";");
             output.print(superhero.getSuperpower());
             output.print(";");
-            output.print(superhero.getHuman());
+            output.print(superhero.isHuman());
             output.print(";");
             output.print(superhero.getStrength());
             output.println();
@@ -54,13 +54,13 @@ public class Filehandler {
 
         heroData.setHeroName(splits[0]);
         heroData.setRealName(splits[1]);
-        int CreationYear = Integer.parseInt(splits[2]);
+        int creationYear = Integer.parseInt(splits[2]);
         heroData.setSuperpower(splits[3]);
         boolean human = Boolean.parseBoolean(splits[4]);
-        Double Strength = Double.parseDouble(splits[5]);
         heroData.setHuman(human);
+        Double strength = Double.parseDouble(splits[5]);
+        heroData.setStrength(strength);
 
         return heroData;
     }
-
-    }
+}
