@@ -1,6 +1,6 @@
 package superhero2;
 
-import superhero2.comparator.NameComparator;
+import superhero2.comparator.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,23 +69,27 @@ public class Database {
 
                     case 2 -> {
                         System.out.println("Superheroes by real name: ");
-
+                        Collections.sort(superheroesDB, new NameComparator());
                     }
 
                     case 3 -> {
                         System.out.println("Superheroes by year of origin: ");
+                        Collections.sort(superheroesDB, new CreationYear());
                     }
 
                     case 4 -> {
                         System.out.println("Superheroes by type of superpowers: ");
+                        Collections.sort(superheroesDB, new SuperPower());
                     }
 
                     case 5 -> {
                         System.out.println("Superheroes by strenght: ");
+                        Collections.sort(superheroesDB, new Strength());
                     }
 
                     case 6 -> {
                         System.out.println("Superheroes by human status: ");
+                        Collections.sort(superheroesDB, new Human());
                     }
 
                     case 7 -> {
