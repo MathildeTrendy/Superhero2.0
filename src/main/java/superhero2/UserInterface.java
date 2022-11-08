@@ -2,7 +2,9 @@ package superhero2;
 
 import superhero2.comparator.*;
 
+import javax.naming.Name;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class UserInterface {
@@ -42,7 +44,7 @@ public class UserInterface {
                 System.out.println("Type superpower:");
                 String superpower = scanner.nextLine();
 
-                System.out.println("Is the superhero a human(True/False):");
+                System.out.println("Is the superhero a human(yes/no):");
                 boolean human = scanner.nextLine().substring(0, 1).equalsIgnoreCase("j");
 
                 System.out.println("Type the creation year of the superhero:");
@@ -50,7 +52,7 @@ public class UserInterface {
 
                 System.out.println("Type superhero strength");
                 double strength = scanner.nextDouble();
-
+                System.out.println("In order to save, load and see your superheroes, follow the main menu");
                 controller.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
 
             } else if (valg == 2) {
@@ -60,7 +62,7 @@ public class UserInterface {
                             + "\n" + "Real name: " + superhero.getRealName()
                             + "\n" + "Creation year: " + superhero.getCreationYear()
                             + "\n" + "Superpower: " + superhero.getSuperpower()
-                            + "\n" + "Is human: " + superhero.isHuman()
+                            + "\n" + "Is human: " + superhero.getHumanternary()
                             + "\n" + "Strength: " + superhero.getStrength() + "\n") ;
                 }
 
@@ -102,41 +104,30 @@ public class UserInterface {
 
                         switch (userInput) {
                             case 1 -> {
-
-                                System.out.println("Superheroes by name: ");
-                                //Collections.sort(ArrayList, new SuperheroName());
+                                //Arrays.sort(Superhero, new NameComparator());
+                                System.out.println("List is sorted by their real name : " );
                             }
-
                             case 2 -> {
-                                System.out.println("Superheroes by real name: ");
-
+                                System.out.println("Superheroes by Superhero name: ");
                             }
-
                             case 3 -> {
                                 System.out.println("Superheroes by year of origin: ");
-
                             }
-
                             case 4 -> {
                                 System.out.println("Superheroes by type of superpowers: ");
-
                             }
-
                             case 5 -> {
                                 System.out.println("Superheroes by strength: ");
 
                             }
-
                             case 6 -> {
                                 System.out.println("Superheroes by human status: ");
                                 //Collections.sort(Su, new Human());
                             }
-
                             case 7 -> {
                                 System.out.println("Returning to main menu");
                                 isRunning = false;
                             }
-
                             default -> {
                                 System.out.println("I don't understand that command, which type of sorted list would you like?");
                                 System.out.println("If you wish to return to menu, type 7");
@@ -150,14 +141,14 @@ public class UserInterface {
                 ArrayList<Superhero> searchResult = controller.searchFor(searchTerm);
 
                 if (searchResult.isEmpty()) {
-                    System.out.println("No superhero found.");
+                    System.out.println("No superhero found");
 
                 } else {
                     System.out.println("Superhero found: ");
-                    for (int i = 0; i < searchResult.size(); i++) {
+                    for (int i = 0; i < searchResult.size(); i++)
                         System.out.println(((i) + 1) + ") " + searchResult.get(i));
                     }
-                    System.out.println("\nWhat number does the superhero have, that you'll like to edit?:");
+                    System.out.println("\nWhat number does the superhero have, that you'd like to edit?:");
                     int number = scanner.nextInt();
                     scanner.nextLine();
                     Superhero hero = searchResult.get(number - 1);
@@ -203,8 +194,8 @@ public class UserInterface {
 
                     System.out.println("Superhero changed to:\n " + hero);
                 }
-            } else if (valg == 6) {
-                System.out.println("Search for the hero you want to remove from database:");
+             else if (valg == 6) {
+                System.out.println("Search for the hero you want to remove from the database:");
                 String searchTerm = scanner.next();
                 ArrayList<Superhero> searchResult = controller.searchFor(searchTerm);
 

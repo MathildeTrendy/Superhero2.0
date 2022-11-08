@@ -7,6 +7,7 @@ public class Superhero {
     private int creationYear;
     private String superpower;
     private boolean human;
+    private String humanternary;
     private double strength;
 
     public Superhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
@@ -17,6 +18,8 @@ public class Superhero {
         this.human = human;
         this.strength = strength;
     }
+
+
 
     public Superhero() {
 
@@ -81,4 +84,12 @@ public class Superhero {
                 ", strength=" + strength +
                 '}';
     }
+
+
+    //Ternary operator for boolean human
+    public String getHumanternary() {
+        String getHumanternary  = (human) ? "No" : "Yes";
+        return getHumanternary;
+    }
 }
+

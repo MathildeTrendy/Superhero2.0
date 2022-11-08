@@ -30,7 +30,6 @@ public class Filehandler {
 
         PrintStream output = new PrintStream(new File(path));
 
-        //navn;ægtenavn;
         for (Superhero superhero : superheroes) {
             output.print(superhero.getHeroName());
             output.print(";");
