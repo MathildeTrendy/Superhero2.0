@@ -9,29 +9,8 @@ public class Controller {
     Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
     private Database database = new Database();
 
-    public void createSuperhero() {
-
-        System.out.println("Create superhero\n");
-
-        System.out.println("Type a superhero name(fx Superman):");
-        String heroName = scanner.nextLine();
-
-        System.out.println("Type the superheroes real name:");
-        String realName = scanner.nextLine();
-
-        System.out.println("Type superpower:");
-        String superpower = scanner.nextLine();
-
-        System.out.println("Is the superhero a human(True/False):");
-        boolean human = scanner.nextLine().substring(0, 1).equalsIgnoreCase("j");
-
-        System.out.println("Type the creation year of the superhero:");
-        int creationYear = scanner.nextInt();
-
-        System.out.println("Type superhero strength");
-        double strength = scanner.nextDouble();
-
-        database.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
+    public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
+        database.createSuperhero( heroName, realName, creationYear, superpower, human, strength);
     }
 
     public ArrayList<Superhero> getListOfAllSuperHeroes() {
@@ -166,6 +145,9 @@ public class Controller {
         Database database = new Database();
         database.SortedList();
     }
+
+
+
 }
 
 

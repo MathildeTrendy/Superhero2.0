@@ -28,7 +28,31 @@ public class UserInterface {
             scanner.nextLine();
 
             if (valg == 1) {
-                controller.createSuperhero();
+
+                System.out.println("Create superhero\n");
+
+                System.out.println("Type a superhero name(fx Superman):");
+                String heroName = scanner.nextLine();
+
+                System.out.println("Type the superheroes real name:");
+                String realName = scanner.nextLine();
+
+                System.out.println("Type superpower:");
+                String superpower = scanner.nextLine();
+
+                System.out.println("Is the superhero a human(True/False):");
+                boolean human = scanner.nextLine().substring(0, 1).equalsIgnoreCase("j");
+
+                System.out.println("Type the creation year of the superhero:");
+                int creationYear = scanner.nextInt();
+
+                System.out.println("Type superhero strength");
+                double strength = scanner.nextDouble();
+
+                controller.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
+
+
+
             } else if (valg == 2) {
 
                 System.out.println("List of superheroes:\n");
