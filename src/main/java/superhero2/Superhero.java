@@ -42,10 +42,6 @@ public class Superhero {
         return superpower;
     }
 
-    public boolean getHuman() {
-        return human;
-    }
-
     public double getStrength() {
         return strength;
     }
@@ -71,9 +67,8 @@ public class Superhero {
     } //test, om der kan skrives andet end true og false
 
 
-
-    public void setStrength(double strength){
-        this.strength=strength;
+    public void setStrength(double strength) {
+        this.strength = strength;
     }
 
     @Override

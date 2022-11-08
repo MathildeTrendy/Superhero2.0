@@ -1,4 +1,5 @@
 package superhero2;
+
 import superhero2.comparator.*;
 
 import java.io.IOException;
@@ -55,7 +56,10 @@ public class UserInterface {
             } else if (valg == 2) {
                 System.out.println("List of superheroes:\n");
                 for (Superhero superhero : controller.getListOfAllSuperHeroes()) {
-                    System.out.println("Superhero name: " + superhero.getHeroName() + "\n" + "Real name: " + superhero.getRealName() + "\n" + "Creation year: " + superhero.getCreationYear() + "\n" + "Superpower: " + superhero.getSuperpower() + "\n" + "Is human: " + superhero.getHuman() + "\n");
+                    System.out.println("Superhero name: " + superhero.getHeroName() + "\n"
+                            + "Real name: " + superhero.getRealName() + "\n" + "Creation year: "
+                            + superhero.getCreationYear() + "\n" + "Superpower: " + superhero.getSuperpower()
+                            + "\n" + "Is human: " + superhero.isHuman() + "\n");
                 }
 
             } else if (valg == 3) {
@@ -75,7 +79,7 @@ public class UserInterface {
                     }
                 }
 
-            }else if (valg == 4) {
+            } else if (valg == 4) {
                 Scanner scanner = new Scanner(System.in);
                 int userInput = 0;
                 boolean isRunning = true;
@@ -98,32 +102,32 @@ public class UserInterface {
                             case 1 -> {
 
                                 System.out.println("Superheroes by name: ");
-                                Collections.sort(ArrayList, new SuperheroName());
+                                //Collections.sort(ArrayList, new SuperheroName());
                             }
 
                             case 2 -> {
                                 System.out.println("Superheroes by real name: ");
-                                Collections.sort(controller.superheroesDB, new NameComparator());
+
                             }
 
                             case 3 -> {
                                 System.out.println("Superheroes by year of origin: ");
-                                Collections.sort(superheroesDB, new CreationYear());
+
                             }
 
                             case 4 -> {
                                 System.out.println("Superheroes by type of superpowers: ");
-                                Collections.sort(superheroesDB, new SuperPower());
+
                             }
 
                             case 5 -> {
                                 System.out.println("Superheroes by strength: ");
-                                Collections.sort(superheroesDB, new Strength());
+
                             }
 
                             case 6 -> {
                                 System.out.println("Superheroes by human status: ");
-                                Collections.sort(superheroesDB, new Human());
+                                //Collections.sort(Su, new Human());
                             }
 
                             case 7 -> {
@@ -227,16 +231,18 @@ public class UserInterface {
 
                     }
                 }
-            } else if (valg == 7){
+            } else if (valg == 7) {
                 controller.saveData();
+                System.out.println("Data saved");
             } else if (valg == 8) {
-            controller.loadData();
+                controller.loadData();
+                System.out.println("Data loaded");
             } else if (valg == 9) {
-            System.exit(0);
-        }
+                System.exit(0);
+            }
 
 
-        }while (valg != 9);
+        } while (valg != 9);
 
 
     }
