@@ -11,115 +11,115 @@ public class Controller {
     Scanner scanner = new Scanner(System.in);
     private Database database = new Database();
 
-    public void opretSuperheroMenu() {
+    public void createSuperhero() {
 
-        System.out.println("Oprettelse af superhelt\n");
+        System.out.println("Create superhero\n");
 
-        System.out.println("Indtast en superhelts navn (fx Superman):");
-        String heltenavn = scanner.nextLine();
+        System.out.println("Type a superhero name(fx Superman):");
+        String heroName = scanner.nextLine();
 
-        System.out.println("Indtast superheltens rigtige navn:");
-        String ægtenavn = scanner.nextLine();
+        System.out.println("Type the superheroes real name:");
+        String realName = scanner.nextLine();
 
-        System.out.println("Indtast superheltens superkræfter:");
-        String superkraft = scanner.nextLine();
+        System.out.println("Type superpower:");
+        String superpower = scanner.nextLine();
 
-        System.out.println("Er superhelten et menneske? (Ja/Nej):");
+        System.out.println("Is the superhero a human(True/False):");
         boolean human = scanner.nextLine().substring(0, 1).equalsIgnoreCase("j");
 
-        System.out.println("Indtast superheltens oprindelsesår:");
-        int årstal = scanner.nextInt();
+        System.out.println("Type the creation year of the superhero:");
+        int creationYear = scanner.nextInt();
 
-        System.out.println("indtast superhelte-styrke");
+        System.out.println("Type superhero strength");
         double strenght = scanner.nextInt();
 
-        database.createSuperhero(heltenavn, ægtenavn, årstal, superkraft, human, strenght);
+        database.createSuperhero(heroName, realName, creationYear, superpower, human, strenght);
     }
 
     public void listeMenu() {
-        System.out.println("Liste over superhelte:\n");
+        System.out.println("List of superheroes:\n");
         for (Superhero superhero : database.getAllSuperHeroes()) {
-            System.out.println("Heltenavn: " + superhero.getHelteNavn() + "\n" + "Rigtige navn: " + superhero.getÆgteNavn() + "\n" + "Oprindelsesår: " + superhero.getÅrstal() + "\n" + "Superkraft: " + superhero.getSuperkraft() + "\n" + "Er et menneske: " + superhero.getHuman() + "\n");
+            System.out.println("Superhero name: " + superhero.getHeroName() + "\n" + "Real name: " + superhero.getRealName() + "\n" + "Creation year: " + superhero.getCreationYear() + "\n" + "Superpower: " + superhero.getSuperpower() + "\n" + "Is human: " + superhero.getHuman() + "\n");
 
         }
     }
 
-    public void søgHelt() {
-        System.out.println("---------------------------------\nSøg efter superhelt:");
+    public void searchHero() {
+        System.out.println("---------------------------------\nSearch for superhero:");
 
-        System.out.println("Indtast navnet på den superhelt du ønsker at finde");
+        System.out.println("Type the name of your favorite superhero");
         String searchTerm = scanner.next();
         ArrayList<Superhero> searchResult = database.searchFor(searchTerm);
 
         if (searchResult.isEmpty()) {
-            System.out.println("Ingen superhelte fundet");
+            System.out.println("No hero found");
 
         } else {
-            System.out.println("Superhelte fundet: ");
+            System.out.println("Superhero found: ");
             for (Superhero superhero : searchResult) {
                 System.out.println(superhero);
             }
         }
     }
 
-    public void redigerHelt() {
-        System.out.println("Indtast navnet på den superhelt du ønsker at redigere:");
+    public void editHero() {
+        System.out.println("Type the name of the superhero you'll like to edit:");
         String searchTerm = scanner.next();
         ArrayList<Superhero> searchResult = database.searchFor(searchTerm);
 
         if (searchResult.isEmpty()) {
-            System.out.println("Ingen superhelte fundet.");
+            System.out.println("No superhero found.");
 
         } else {
-            System.out.println("Superhelte fundet: ");
+            System.out.println("Superhero found: ");
             for (int i = 0; i < searchResult.size(); i++) {
                 System.out.println(((i) + 1) + ") " + searchResult.get(i));
             }
-            System.out.println("\nHvilket nr. har superhelten du vil redigere?:");
+            System.out.println("\nWhat number does the superhero have, that you'll like to edit?:");
             int number = scanner.nextInt();
             scanner.nextLine();
             Superhero hero = searchResult.get(number - 1);
 
 
-            System.out.println("Indtast det nye superheltenavn eller tryk 'enter' for at beholde det nuværende:");
-            String helteNavn = scanner.nextLine();
+            System.out.println("Type the new superhero name er press 'enter' to keep the present name:");
+            String heroName = scanner.nextLine();
 
-            if (!helteNavn.isEmpty()) {
-                hero.setHelteNavn(helteNavn);
+            if (!heroName.isEmpty()) {
+                hero.setHeroName(heroName);
             }
-            System.out.println("Indtast det nye navn eller tryk enter:");
-            String ægteNavn = scanner.nextLine();
+            System.out.println("Type the new name or press 'enter':");
+            String realName = scanner.nextLine();
 
-            if (!ægteNavn.isEmpty()) {
-                hero.setÆgteNavn(ægteNavn);
+            if (!realName.isEmpty()) {
+                hero.setRealName(realName);
             }
 
-            System.out.println("Indtast den nye superkraft eller tryk enter:");
-            String superkraft = scanner.nextLine();
+            System.out.println("Type the new superpower or press 'enter':");
+            String superpower = scanner.nextLine();
 
-            if (!superkraft.isEmpty()) {
-                hero.setSuperkraft(superkraft);
+            if (!superpower.isEmpty()) {
+                hero.setSuperpower(superpower);
             }
 
 
             boolean writingError = false;
             do {
                 try {
-                    System.out.println("Skriv oprindelsesåret for din superhelt:");
-                    String årstal = scanner.nextLine();
-                    if (!årstal.isEmpty()) {
-                        hero.setÅrstal(Integer.parseInt(årstal));
+                    System.out.println("Type creation year for your superhero:");
+                    String creationYear = scanner.nextLine();
+                    if (!creationYear.isEmpty()) {
+                        hero.setCreationYear(Integer.parseInt(creationYear));
                     }
                     writingError = false;
 
                 } catch (NumberFormatException e) {
-                    System.out.println("Der opstod en fejl - Prøv igen.");
+                    System.out.println("Error occurred - try again.");
                     writingError = true;
                 }
 
             } while (writingError == true);
 
-            System.out.println("Superhelt ændret til:\n " + hero);
+            System.out.println("Superhero changed to:\n " + hero);
         }
     }
 
@@ -135,34 +135,34 @@ public class Controller {
         loadData();
     }
 
-    public void sletHelt() {
+    public void deleteHero() {
 
-        System.out.println("Søg efter den helt du vil slette fra databasen:");
+        System.out.println("Search for the hero you want to remove from database:");
         String searchTerm = scanner.next();
         ArrayList<Superhero> searchResult = database.searchFor(searchTerm);
 
         if (searchResult.isEmpty()) {
-            System.out.println("Ingen superhelt(e) fundet.\n");
+            System.out.println("No superhero(es) found.\n");
 
         } else {
-            System.out.println("Superhelt(e) fundet: ");
+            System.out.println("Superhero(es) found: ");
             for (int i = 0; i < searchResult.size(); i++) {
                 System.out.println(((i) + 1) + ") " + searchResult.get(i));
             }
-            System.out.println("\nHvilket nr. har superhelten du vil slette?:");
+            System.out.println("\nWhat number does the superhero have, that you want to delete?:");
             int number = scanner.nextInt();
             scanner.nextLine();
             Superhero superhero = searchResult.get(number - 1);
 
-            System.out.println("Er du sikker på, at du vil slette superhelten? (true/false): ");
+            System.out.println("Are you sure, you want to delete the superhero? (true/false): ");
             boolean delete = scanner.nextBoolean();
             if (delete == true) {
                 database.deleteSuperhero(superhero);
 
-                System.out.println("Superhelt slettet fra database.");
+                System.out.println("Superhero deleted from database.");
 
             } else if (delete == false) {
-                System.out.println("Sletter ikke superhelt.");
+                System.out.println("Superhero not deleted.");
 
             }
         }
