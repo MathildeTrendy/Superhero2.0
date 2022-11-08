@@ -15,11 +15,15 @@ public class Superhero {
         this.creationYear = creationYear;
         this.superpower = superpower;
         this.human = human;
-        this.strength  =strength;
+        this.strength = strength;
     }
 
     public Superhero() {
 
+    }
+
+    public boolean isHuman() {
+        return human;
     }
 
     public String getHeroName() {
@@ -41,6 +45,7 @@ public class Superhero {
     public boolean getHuman() {
         return human;
     }
+
     public double getStrength() {
         return strength;
     }
@@ -57,15 +62,16 @@ public class Superhero {
         this.creationYear = creationYear;
     }
 
-    public void setSuperpower (String superpower) {
+    public void setSuperpower(String superpower) {
         this.superpower = superpower;
     }
 
     public void setHuman(boolean human) {
         this.human = human;
     }
-    public void setStrength(double strength){
-        this.strength=strength;
+
+    public void setStrength(double strength) {
+        this.strength = strength;
     }
 
     @Override

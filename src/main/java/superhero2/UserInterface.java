@@ -16,17 +16,18 @@ public class UserInterface {
             System.out.println(" 1) Create new superhero \n " +
                     "2) Show all superheroes \n " +
                     "3) Search superhero  \n " +
-                    "4) Edit hero \n " +
-                    "5) Delete hero \n " +
-                    "6) Save hero \n " +
-                    "7) Load data \n " +
+                    "4) Sorted list of heroes \n " +
+                    "5) Edit hero \n " +
+                    "6) Delete hero \n " +
+                    "7) Save hero \n " +
+                    "8) Load data \n " +
                     "9) Exit database \n ---------------------------------");
 
 
             int valg = scanner.nextInt();
             scanner.nextLine();
             if (valg == 1) {
-                controller.createSuperHero();
+                controller.createSuperhero();
             } else if (valg == 2) {
                 controller.listeMenu();
             } else if (valg == 3) {
@@ -44,8 +45,6 @@ public class UserInterface {
             } else if (valg == 9) {
             System.exit(0);
         }
-
-
         }while (valg != 9);
 
 

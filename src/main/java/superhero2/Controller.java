@@ -2,13 +2,15 @@ package superhero2;
 
 import superhero2.comparator.CreationYear;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Controller {
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
     private Database database = new Database();
 
     public void createSuperhero() {
@@ -31,9 +33,9 @@ public class Controller {
         int creationYear = scanner.nextInt();
 
         System.out.println("Type superhero strength");
-        double strenght = scanner.nextInt();
+        double strength = scanner.nextDouble();
 
-        database.createSuperhero(heroName, realName, creationYear, superpower, human, strenght);
+        database.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
     }
 
     public void listeMenu() {
@@ -169,8 +171,8 @@ public class Controller {
     }
 
     public void sortedList() {
-        Filehandler filehandler = new Filehandler();
-        filehandler.SortedList();
+        Database database = new Database();
+        database.SortedList();
     }
 }
 
