@@ -1,9 +1,10 @@
 package superhero2;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class UserInterface {
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
     Controller controller = new Controller();
 
     int valg;
@@ -16,19 +17,51 @@ public class UserInterface {
             System.out.println(" 1) Create new superhero \n " +
                     "2) Show all superheroes \n " +
                     "3) Search superhero  \n " +
-                    "4) Edit hero \n " +
-                    "5) Delete hero \n " +
-                    "6) Save hero \n " +
-                    "7) Load data \n " +
+                    "4) Sorted list of heroes \n " +
+                    "5) Edit hero \n " +
+                    "6) Delete hero \n " +
+                    "7) Save hero \n " +
+                    "8) Load data \n " +
                     "9) Exit database \n ---------------------------------");
 
 
             int valg = scanner.nextInt();
             scanner.nextLine();
+
             if (valg == 1) {
-             //   controller.createSuperHero();
+
+                System.out.println("Create superhero\n");
+
+                System.out.println("Type a superhero name(fx Superman):");
+                String heroName = scanner.nextLine();
+
+                System.out.println("Type the superheroes real name:");
+                String realName = scanner.nextLine();
+
+                System.out.println("Type superpower:");
+                String superpower = scanner.nextLine();
+
+                System.out.println("Is the superhero a human(True/False):");
+                boolean human = scanner.nextLine().substring(0, 1).equalsIgnoreCase("j");
+
+                System.out.println("Type the creation year of the superhero:");
+                int creationYear = scanner.nextInt();
+
+                System.out.println("Type superhero strength");
+                double strength = scanner.nextDouble();
+
+                controller.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
+
+
+
             } else if (valg == 2) {
-                controller.listeMenu();
+
+                System.out.println("List of superheroes:\n");
+                for (Superhero superhero : controller.getListOfAllSuperHeroes()) {
+                    System.out.println("Superhero name: " + superhero.getHeroName() + "\n" + "Real name: " + superhero.getRealName() + "\n" + "Creation year: " + superhero.getCreationYear() + "\n" + "Superpower: " + superhero.getSuperpower() + "\n" + "Is human: " + superhero.getHuman() + "\n");
+                }
+
+
             } else if (valg == 3) {
                 controller.searchHero();
             }else if (valg == 4) {
