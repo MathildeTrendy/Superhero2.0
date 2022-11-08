@@ -2,6 +2,7 @@ package superhero2;
 
 import superhero2.comparator.CreationYear;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -39,7 +40,10 @@ public class Controller {
     public void listeMenu() {
         System.out.println("Liste over superhelte:\n");
         for (Superhero superhero : database.getAllSuperHeroes()) {
-            System.out.println("Heltenavn: " + superhero.getHelteNavn() + "\n" + "Rigtige navn: " + superhero.getÆgteNavn() + "\n" + "Oprindelsesår: " + superhero.getÅrstal() + "\n" + "Superkraft: " + superhero.getSuperkraft() + "\n" + "Er et menneske: " + superhero.getHuman() + "\n");
+            System.out.println("Heltenavn: " + superhero.getHelteNavn() + "\n" + "Rigtige navn: "
+                    + superhero.getÆgteNavn() + "\n" + "Oprindelsesår: " + superhero.getÅrstal() +
+                    "\n" + "Superkraft: " + superhero.getSuperkraft() + "\n" + "Er et menneske: "
+                    + superhero.getHuman() + "\n");
 
         }
     }
@@ -169,8 +173,8 @@ public class Controller {
     }
 
     public void sortedList() {
-        Filehandler filehandler = new Filehandler();
-        filehandler.SortedList();
+        Database database = new Database();
+        database.SortedList();
     }
 }
 
