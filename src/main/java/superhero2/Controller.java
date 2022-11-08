@@ -1,9 +1,5 @@
 package superhero2;
 
-import superhero2.comparator.CreationYear;
-
-import javax.xml.crypto.Data;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -38,12 +34,8 @@ public class Controller {
         database.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
     }
 
-    public void listeMenu() {
-        System.out.println("List of superheroes:\n");
-        for (Superhero superhero : database.getAllSuperHeroes()) {
-            System.out.println("Superhero name: " + superhero.getHeroName() + "\n" + "Real name: " + superhero.getRealName() + "\n" + "Creation year: " + superhero.getCreationYear() + "\n" + "Superpower: " + superhero.getSuperpower() + "\n" + "Is human: " + superhero.getHuman() + "\n");
-
-        }
+    public ArrayList<Superhero> getListOfAllSuperHeroes() {
+        return database.getAllSuperHeroes();
     }
 
     public void searchHero() {

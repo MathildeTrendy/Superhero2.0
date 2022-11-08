@@ -30,7 +30,13 @@ public class UserInterface {
             if (valg == 1) {
                 controller.createSuperhero();
             } else if (valg == 2) {
-                controller.listeMenu();
+
+                System.out.println("List of superheroes:\n");
+                for (Superhero superhero : controller.getListOfAllSuperHeroes()) {
+                    System.out.println("Superhero name: " + superhero.getHeroName() + "\n" + "Real name: " + superhero.getRealName() + "\n" + "Creation year: " + superhero.getCreationYear() + "\n" + "Superpower: " + superhero.getSuperpower() + "\n" + "Is human: " + superhero.getHuman() + "\n");
+                }
+
+
             } else if (valg == 3) {
                 controller.searchHero();
             }else if (valg == 4) {
