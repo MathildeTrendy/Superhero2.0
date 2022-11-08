@@ -7,7 +7,7 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
     Controller controller = new Controller();
 
-    int choice;
+    int valg;
 
     public void startMenu() throws IOException {
 
@@ -15,7 +15,7 @@ public class UserInterface {
             System.out.println("--------------------------------- \n Welcome to the world of Superheroes!");
             System.out.println("---------------------------------");
             System.out.println(" 1) Create new superhero \n " +
-                    "2) View list of all superheroes \n " +
+                    "2) Show all superheroes \n " +
                     "3) Search superhero  \n " +
                     "4) Sorted list of heroes \n " +
                     "5) Edit hero \n " +
@@ -24,29 +24,59 @@ public class UserInterface {
                     "8) Load data \n " +
                     "9) Exit database \n ---------------------------------");
 
-            int choice = scanner.nextInt();
+            int valg = scanner.nextInt();
             scanner.nextLine();
 
-            if (choice == 1) {
-                controller.createSuperhero();
-            } else if (choice == 2) {
-                controller.listeMenu();
-            } else if (choice == 3) {
+            if (valg == 1) {
+
+                System.out.println("Create superhero\n");
+
+                System.out.println("Type a superhero name(fx Superman):");
+                String heroName = scanner.nextLine();
+
+                System.out.println("Type the superheroes real name:");
+                String realName = scanner.nextLine();
+
+                System.out.println("Type superpower:");
+                String superpower = scanner.nextLine();
+
+                System.out.println("Is the superhero a human(True/False):");
+                boolean human = scanner.nextLine().substring(0, 1).equalsIgnoreCase("j");
+
+                System.out.println("Type the creation year of the superhero:");
+                int creationYear = scanner.nextInt();
+
+                System.out.println("Type superhero strength");
+                double strength = scanner.nextDouble();
+
+                controller.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
+
+
+
+            } else if (valg == 2) {
+
+                System.out.println("List of superheroes:\n");
+                for (Superhero superhero : controller.getListOfAllSuperHeroes()) {
+                    System.out.println("Superhero name: " + superhero.getHeroName() + "\n" + "Real name: " + superhero.getRealName() + "\n" + "Creation year: " + superhero.getCreationYear() + "\n" + "Superpower: " + superhero.getSuperpower() + "\n" + "Is human: " + superhero.getHuman() + "\n");
+                }
+
+
+            } else if (valg == 3) {
                 controller.searchHero();
-            }else if (choice == 4) {
+            }else if (valg == 4) {
                 controller.sortedList(); //Sorted list by users choice
-            } else if (choice == 5) {
+            } else if (valg == 5) {
                 controller.editHero();
-            } else if (choice == 6) {
+            } else if (valg == 6) {
                 controller.deleteHero();
-            } else if (choice == 7){
+            } else if (valg == 7){
                 controller.saveData();
-            } else if (choice == 8) {
+            } else if (valg == 8) {
             controller.loadData();
-            } else if (choice == 9) {
+            } else if (valg == 9) {
             System.exit(0);
         }
-        }while (choice != 9);
+        }while (valg != 9);
 
     }
 }

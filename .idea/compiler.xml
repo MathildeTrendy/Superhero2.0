@@ -9,5 +9,8 @@
         <module name="SuperHelte" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Superhero2.0" target="18" />
+    </bytecodeTargetLevel>
   </component>
 </project>

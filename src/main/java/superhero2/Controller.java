@@ -1,9 +1,5 @@
 package superhero2;
 
-import superhero2.comparator.CreationYear;
-
-import javax.xml.crypto.Data;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -13,37 +9,12 @@ public class Controller {
     Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
     private Database database = new Database();
 
-    public void createSuperhero() {
-
-        System.out.println("Create superhero\n");
-
-        System.out.println("Type a superhero name(fx Superman):");
-        String heroName = scanner.nextLine();
-
-        System.out.println("Type the superheroes real name:");
-        String realName = scanner.nextLine();
-
-        System.out.println("Type superpower:");
-        String superpower = scanner.nextLine();
-
-        System.out.println("Is the superhero a human(True/False):");
-        boolean human = scanner.nextLine().substring(0, 1).equalsIgnoreCase("j");
-
-        System.out.println("Type the creation year of the superhero:");
-        int creationYear = scanner.nextInt();
-
-        System.out.println("Type superhero strength");
-        double strength = scanner.nextDouble();
-
-        database.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
+    public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
+        database.createSuperhero( heroName, realName, creationYear, superpower, human, strength);
     }
 
-    public void listeMenu() {
-        System.out.println("List of superheroes:\n");
-        for (Superhero superhero : database.getAllSuperHeroes()) {
-            System.out.println("Superhero name: " + superhero.getHeroName() + "\n" + "Real name: " + superhero.getRealName() + "\n" + "Creation year: " + superhero.getCreationYear() + "\n" + "Superpower: " + superhero.getSuperpower() + "\n" + "Is human: " + superhero.getHuman() + "\n");
-
-        }
+    public ArrayList<Superhero> getListOfAllSuperHeroes() {
+        return database.getAllSuperHeroes();
     }
 
     public void searchHero() {
@@ -174,6 +145,9 @@ public class Controller {
         Database database = new Database();
         database.SortedList();
     }
+
+
+
 }
 
 
