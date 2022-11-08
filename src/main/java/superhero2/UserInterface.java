@@ -1,9 +1,10 @@
 package superhero2;
 import java.io.IOException;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class UserInterface {
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
     Controller controller = new Controller();
 
     int valg;
