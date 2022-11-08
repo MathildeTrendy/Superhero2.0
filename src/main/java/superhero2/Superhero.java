@@ -22,50 +22,49 @@ public class Superhero {
 
     }
 
-    public boolean isHuman() {
-        return human;
-    }
-
     public String getHeroName() {
         return heroName;
-    }
-
-    public String getRealName() {
-        return realName;
-    }
-
-    public int getCreationYear() {
-        return creationYear;
-    }
-
-    public String getSuperpower() {
-        return superpower;
-    }
-
-    public double getStrength() {
-        return strength;
     }
 
     public void setHeroName(String heroName) {
         this.heroName = heroName;
     }
 
+    public String getRealName() {
+        return realName;
+    }
+
     public void setRealName(String realName) {
         this.realName = realName;
+    }
+
+    public int getCreationYear() {
+        return creationYear;
     }
 
     public void setCreationYear(int creationYear) {
         this.creationYear = creationYear;
     }
 
+    public String getSuperpower() {
+        return superpower;
+    }
+
     public void setSuperpower(String superpower) {
         this.superpower = superpower;
     }
 
+    public boolean isHuman() {
+        return human;
+    }
+
     public void setHuman(boolean human) {
         this.human = human;
-    } //test, om der kan skrives andet end true og false
+    }
 
+    public double getStrength() {
+        return strength;
+    }
 
     public void setStrength(double strength) {
         this.strength = strength;
@@ -82,5 +81,4 @@ public class Superhero {
                 ", strength=" + strength +
                 '}';
     }
-
 }

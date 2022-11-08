@@ -56,10 +56,12 @@ public class UserInterface {
             } else if (valg == 2) {
                 System.out.println("List of superheroes:\n");
                 for (Superhero superhero : controller.getListOfAllSuperHeroes()) {
-                    System.out.println("Superhero name: " + superhero.getHeroName() + "\n"
-                            + "Real name: " + superhero.getRealName() + "\n" + "Creation year: "
-                            + superhero.getCreationYear() + "\n" + "Superpower: " + superhero.getSuperpower()
-                            + "\n" + "Is human: " + superhero.isHuman() + "\n");
+                    System.out.println("Superhero name: " + superhero.getHeroName()
+                            + "\n" + "Real name: " + superhero.getRealName()
+                            + "\n" + "Creation year: " + superhero.getCreationYear()
+                            + "\n" + "Superpower: " + superhero.getSuperpower()
+                            + "\n" + "Is human: " + superhero.isHuman()
+                            + "\n" + "Strength: " + superhero.getStrength() + "\n") ;
                 }
 
             } else if (valg == 3) {
