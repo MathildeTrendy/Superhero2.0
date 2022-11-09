@@ -62,6 +62,10 @@ public class Superhero {
         this.superpower = superpower;
     }
 
+    public boolean getHuman() {
+        return false;
+    }
+
     public void setHuman(boolean human) {
         this.human = human;
     } //test, om der kan skrives andet end true og false
@@ -82,5 +86,6 @@ public class Superhero {
                 ", strength=" + strength +
                 '}';
     }
+
 
 }
