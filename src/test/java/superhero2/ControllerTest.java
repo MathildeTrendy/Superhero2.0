@@ -2,7 +2,12 @@ package superhero2;
 
 import org.testng.annotations.Test;
 
-    class ControllerTest {
+import javax.xml.crypto.Data;
+import java.util.ArrayList;
+
+import static org.testng.AssertJUnit.assertEquals;
+
+class ControllerTest {
 
     @Test
     void createSuperhero() {
@@ -26,12 +31,15 @@ import org.testng.annotations.Test;
 
     @Test
     void searchHeroIgnoreCase() {
-        /*Controller controller = new Controller();
+        Database database = new Database();
+        //Controller controller = new Controller();
         //Arrange
-        controller.createSuperhero("Hans", realName, creationYear, superpower, human, strength  );
-        controller.createSuperhero("Bjarne", realName, creationYear, superpower, human, strength  );
+
+        database.createSuperhero("Superman", "Kent Clark",1980, "Flight", true, 100  );
+        database.createSuperhero("Wonder Woman", "Diana Prince", 1890, "Super human strength",true, 100  );
+        database.createSuperhero("Bobbel","Bobbel", 2004, "Tale med dyr", false, 70 );
         //Act
-        ArrayList <Superhero> searchResult = controller.searchHero("haNS");
+        ArrayList <Superhero> searchResult = database.searchFor ("superman");
         //Assert
         assertEquals(1,searchResult.size()); //testsproget - forventer at det er sandt: expected og faktiske*/
     }
