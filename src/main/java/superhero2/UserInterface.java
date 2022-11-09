@@ -19,12 +19,12 @@ public class UserInterface {
             System.out.println("--------------------------------- \n Welcome to the world of Superheroes!");
             System.out.println("---------------------------------");
             System.out.println(" 1) Create new superhero \n " +
-                    "2) Show all superheroes \n " +
-                    "3) Search superhero  \n " +
+                    "2) Show list of all superheroes \n " +
+                    "3) Search for a superhero  \n " +
                     "4) Sorted list of heroes \n " +
                     "5) Edit hero \n " +
                     "6) Delete hero \n " +
-                    "7) Save hero \n " +
+                    "7) Save data \n " +
                     "8) Load data \n " +
                     "9) Exit database \n ---------------------------------");
 
@@ -87,21 +87,25 @@ public class UserInterface {
                 Scanner scanner = new Scanner(System.in);
                 int userInput = 0;
                 boolean isRunning = true;
+                String sortedInput = "";
 
-                while (userInput != 7) {
+                while (userInput != 4) {
+                    // Menu for list of sorted superheroes
                     System.out.println("Choose how you would like to sort your heroes: ");
-                    System.out.println("1) by superhero name");
-                    System.out.println("2) by real name");
-                    System.out.println("3) by year of origin");
-                    System.out.println("4) by type of superpowers");
-                    System.out.println("5) by strength of superhero");
-                    System.out.println("6) by human status");
-                    System.out.println("7) Quit to main menu");
+                    System.out.println("1) By superhero name");
+                    System.out.println("2) By real name");
+                    System.out.println("3) By year of origin");
+                    System.out.println("4) By type of superpowers");
+                    System.out.println("5) By strength of superhero");
+                    System.out.println("6) By human status");
+                    System.out.println("7) Sort superheroes by two requested values");
+                    System.out.println("8) Quit to main menu");
+
+                    //Do-while loop that´s is looping through if userInput is true
 
                     do {
                         userInput = scanner.nextInt();
                         scanner.nextLine();
-
                         switch (userInput) {
                             case 1 -> {
                                 //Arrays.sort(Superhero, new NameComparator());
@@ -125,6 +129,10 @@ public class UserInterface {
                                 //Collections.sort(Su, new Human());
                             }
                             case 7 -> {
+                                sortedByPrimAnd2ry();
+                                System.out.println("sort superheroes by a requested primary and secondary attribute");
+                            }
+                            case 8 -> {
                                 System.out.println("Returning to main menu");
                                 isRunning = false;
                             }
@@ -135,6 +143,97 @@ public class UserInterface {
                         }
                     } while (isRunning);
                 }
+
+                private void sortedByPrimAnd2ry(){
+                    Scanner scanner1 = new Scanner(System.in);
+                    int userInput1 = 0;
+                    String primary = "";
+                    String secondary = "";
+                    boolean isRunning1 = true;
+
+                    while (userInput1!=4){
+                        //Command for sorting superheroes by the requested primary and secondary attribute
+                        System.out.println("Sort superheroes by a requested primary and secondary attribute, begin with primary value ");
+                        System.out.println("""
+                                1. Superhero name 
+                                2. Superhero real name 
+                                3. Superhero creation year 
+                                4. Superpower
+                                5. Superhero human status
+                                6. Strenght """);
+
+                        System.out.println("9. exit ");
+                        // Do-while loop that´s keep looping through if userinput is true
+
+                        do {
+                            try {
+                                ArrayList<Superhero> allSuperheroes = controller.getListOfAllSuperHeroes();
+                                userInput1 = scanner1.nextInt();
+                                scanner1.nextLine();
+                                switch (userInput1) {
+                                    case 1 -> {
+                                        primary = ("Sort superheroes by Superhero name: ");
+                                    }
+                                    case 2 -> {
+                                        primary = ("Sort superheroes by real name: ");
+                                    }
+                                    case 3 -> {
+                                        primary = ("Sort superheroes by year of origin: ");
+                                    }
+                                    case 4 -> {
+                                        primary = ("Superheroes by type of superpowers: ");
+                                    }
+                                    case 5 -> {
+                                        primary = ("Superheroes by human status: ");
+                                    }
+                                    case 6 -> {
+                                        primary = ("Superheroes by strength: ");
+                                    }
+                                }
+
+                                System.out.println("Choose your requested secondary value");
+                                System.out.println("""
+                                        1. Superhero name 
+                                        2. Superhero real name 
+                                        3. Superhero creation year 
+                                        4. Superpower
+                                        5. Superhero human status
+                                        6. Strenght """);
+
+                                int secondInput = scanner.nextInt();
+                                scanner1.nextLine();
+
+                                switch (secondInput) {
+                                    case 1 -> {
+                                        secondary = ("Sort your second requested value as superheroes by Superhero name: ");
+                                    }
+                                    case 2 -> {
+                                        secondary = ("Sort your second requested value as superheroes by  real name: ");
+                                    }
+                                    case 3 -> {
+                                        secondary = ("Sort your second requested value as superheroes by year of origin: ");
+                                    }
+                                    case 4 -> {
+                                        secondary = ("Sort your second requested value as superheroes by superpowers: ");
+                                    }
+                                    case 5 -> {
+                                        secondary = ("Sort your second requested value as superheroes by human status: ");
+                                    }
+                                    case 6 -> {
+                                        secondary = ("Sort your second requested value as superheroes by strenght: ");
+                                    }
+                                }
+                                ArrayList<Superhero> sortedList = controller.sortedList(primary, secondary);
+                                printedSorted(sortedList);
+                                userInput1 = false;
+                            }
+
+                        }while (isRunning1);
+
+                    }
+                }
+
+
             } else if (valg == 5) {
                 System.out.println("Type the name of the superhero you'd like to edit:");
                 String searchTerm = scanner.next();
@@ -239,5 +338,8 @@ public class UserInterface {
 
 
     }
+
+
+
 
 }

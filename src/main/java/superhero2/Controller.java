@@ -39,14 +39,18 @@ public class Controller {
         //loadData();
     }
 
-    public void deleteSuperhero(Superhero superhero) {
-//TODO: TODO: Hvad skal der ske her, efter de er rykket til UI?
+    public void deleteSuperhero(Superhero superhero) throws FileNotFoundException {
+        database.deleteSuperhero(deleteSuperhero);
+        saveData();
+    //TODO: TODO: Hvad skal der ske her, efter de er rykket til UI?
     }
 
     public void sortedList() {
         Database database = new Database();
         database.SortedList();
     }
+
+
 }
 
 
