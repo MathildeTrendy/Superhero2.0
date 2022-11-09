@@ -20,7 +20,6 @@ public class Superhero {
     }
 
 
-
     public Superhero() {
 
     }
@@ -85,10 +84,9 @@ public class Superhero {
                 '}';
     }
 
-
     //Ternary operator for boolean human
     public String getHumanternary() {
-        String getHumanternary  = (human) ? "No" : "Yes";
+        String getHumanternary = (human) ? "No" : "Yes";
         return getHumanternary;
     }
 }
