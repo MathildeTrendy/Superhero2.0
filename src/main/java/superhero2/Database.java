@@ -1,14 +1,22 @@
 package superhero2;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class Database {
 
+    //Attributes
     private ArrayList<Superhero> superheroesDB = new ArrayList<>();
 
-    public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
+    // Getter for arraylist of superheroes
+    public ArrayList<Superhero> getAllSuperHeroes() {
+        return superheroesDB;
+    }
 
+    public void updateSuperheroList(ArrayList<Superhero> superheroes) {
+        superheroesDB = superheroes;
+    }
+
+    public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
         Superhero hero = new Superhero(heroName, realName, creationYear, superpower, human, strength);
         superheroesDB.add(hero);
     }
@@ -24,24 +32,28 @@ public class Database {
         return searchResult;
     }
 
-    public ArrayList<Superhero> getAllSuperHeroes() {
-        return superheroesDB;
-    }
-
     public boolean deleteSuperhero() {
-        boolean succes;
-        succes = superheroesDB.remove(superhero);
-        return succes;
+        //Find superhero with this name
+        Superhero superhero = findSuperHeroByName(name);
+        if (superhero == null){
+            return  false;
+        }else {
+            superhero.delete(superhero);
+        }return true;
     }
 
-    public void updateSuperheroList(ArrayList<Superhero> superheroes) {
-        superheroesDB = superheroes;
+    private Superhero findSuperHeroByName(String name){
+        for (Superhero superhero : superheroesDB){
+            if (superhero.getHeroName().equalsIgnoreCase(name)){
+            }
+        }
+        return null;
     }
 
-    public void SortedList() {
-        Comparator comparator = new
-    }
 
+
+
+    
 }
 
 
