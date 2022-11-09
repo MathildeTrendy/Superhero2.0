@@ -1,10 +1,7 @@
 package superhero2;
 
-import superhero2.comparator.*;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.Comparator;
 
 public class Database {
 
@@ -31,7 +28,7 @@ public class Database {
         return superheroesDB;
     }
 
-    public boolean deleteSuperhero(Superhero superhero) {
+    public boolean deleteSuperhero() {
         boolean succes;
         succes = superheroesDB.remove(superhero);
         return succes;
@@ -42,7 +39,7 @@ public class Database {
     }
 
     public void SortedList() {
-
+        Comparator comparator = new
     }
 
 }
