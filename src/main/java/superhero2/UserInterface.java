@@ -144,7 +144,7 @@ public class UserInterface {
                     } while (isRunning);
                 }
 
-                private void sortedByPrimAnd2ry(String primary,String secondary ){
+                private void sortedByPrimAnd2ry( ){
                     Scanner scanner1 = new Scanner(System.in);
                     int userInput1 = 0;
                     String primary = "";
