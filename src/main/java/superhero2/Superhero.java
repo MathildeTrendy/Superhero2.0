@@ -7,6 +7,7 @@ public class Superhero {
     private int creationYear;
     private String superpower;
     private boolean human;
+    private String humanternary;
     private double strength;
 
     public Superhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
@@ -18,58 +19,54 @@ public class Superhero {
         this.strength = strength;
     }
 
+
     public Superhero() {
 
-    }
-
-    public boolean isHuman() {
-        return human;
     }
 
     public String getHeroName() {
         return heroName;
     }
 
-    public String getRealName() {
-        return realName;
-    }
-
-    public int getCreationYear() {
-        return creationYear;
-    }
-
-    public String getSuperpower() {
-        return superpower;
-    }
-
-    public double getStrength() {
-        return strength;
-    }
-
     public void setHeroName(String heroName) {
         this.heroName = heroName;
+    }
+
+    public String getRealName() {
+        return realName;
     }
 
     public void setRealName(String realName) {
         this.realName = realName;
     }
 
+    public int getCreationYear() {
+        return creationYear;
+    }
+
     public void setCreationYear(int creationYear) {
         this.creationYear = creationYear;
+    }
+
+    public String getSuperpower() {
+        return superpower;
     }
 
     public void setSuperpower(String superpower) {
         this.superpower = superpower;
     }
 
-    public boolean getHuman() {
-        return false;
+    public boolean isHuman() {
+        return human;
     }
 
     public void setHuman(boolean human) {
         this.human = human;
-    } //test, om der kan skrives andet end true og false
+    }
 
+    public double getStrength() {
+        return strength;
+    }
 
     public void setStrength(double strength) {
         this.strength = strength;
@@ -87,5 +84,10 @@ public class Superhero {
                 '}';
     }
 
-
+    //Ternary operator for boolean human
+    public String getHumanternary() {
+        String getHumanternary = (human) ? "No" : "Yes";
+        return getHumanternary;
+    }
 }
+

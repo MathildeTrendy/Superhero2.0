@@ -2,7 +2,9 @@ package superhero2;
 
 import superhero2.comparator.*;
 
+import javax.naming.Name;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class UserInterface {
@@ -42,7 +44,7 @@ public class UserInterface {
                 System.out.println("Type superpower:");
                 String superpower = scanner.nextLine();
 
-                System.out.println("Is the superhero a human(True/False):");
+                System.out.println("Is the superhero a human(yes/no):");
                 boolean human = scanner.nextLine().substring(0, 1).equalsIgnoreCase("j");
 
                 System.out.println("Type the creation year of the superhero:");
@@ -50,16 +52,18 @@ public class UserInterface {
 
                 System.out.println("Type superhero strength");
                 double strength = scanner.nextDouble();
-
+                System.out.println("In order to save, load and see your superheroes, follow the main menu");
                 controller.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
 
             } else if (valg == 2) {
                 System.out.println("List of superheroes:\n");
                 for (Superhero superhero : controller.getListOfAllSuperHeroes()) {
-                    System.out.println("Superhero name: " + superhero.getHeroName() + "\n"
-                            + "Real name: " + superhero.getRealName() + "\n" + "Creation year: "
-                            + superhero.getCreationYear() + "\n" + "Superpower: " + superhero.getSuperpower()
-                            + "\n" + "Is human: " + superhero.isHuman() + "\n");
+                    System.out.println("Superhero name: " + superhero.getHeroName()
+                            + "\n" + "Real name: " + superhero.getRealName()
+                            + "\n" + "Creation year: " + superhero.getCreationYear()
+                            + "\n" + "Superpower: " + superhero.getSuperpower()
+                            + "\n" + "Is human: " + superhero.getHumanternary()
+                            + "\n" + "Strength: " + superhero.getStrength() + "\n");
                 }
 
             } else if (valg == 3) {
@@ -85,7 +89,7 @@ public class UserInterface {
                 boolean isRunning = true;
 
                 while (userInput != 7) {
-                    System.out.println("Choose how you would like to sort your list:");
+                    System.out.println("Choose how you would like to sort your heroes: ");
                     System.out.println("1) by superhero name");
                     System.out.println("2) by real name");
                     System.out.println("3) by year of origin");
@@ -100,41 +104,30 @@ public class UserInterface {
 
                         switch (userInput) {
                             case 1 -> {
-
-                                System.out.println("Superheroes by name: ");
-                                //Collections.sort(ArrayList, new SuperheroName());
+                                //Arrays.sort(Superhero, new NameComparator());
+                                System.out.println("List is sorted by their real name : ");
                             }
-
                             case 2 -> {
-                                System.out.println("Superheroes by real name: ");
-
+                                System.out.println("Superheroes by Superhero name: ");
                             }
-
                             case 3 -> {
                                 System.out.println("Superheroes by year of origin: ");
-
                             }
-
                             case 4 -> {
                                 System.out.println("Superheroes by type of superpowers: ");
-
                             }
-
                             case 5 -> {
                                 System.out.println("Superheroes by strength: ");
 
                             }
-
                             case 6 -> {
                                 System.out.println("Superheroes by human status: ");
                                 //Collections.sort(Su, new Human());
                             }
-
                             case 7 -> {
                                 System.out.println("Returning to main menu");
                                 isRunning = false;
                             }
-
                             default -> {
                                 System.out.println("I don't understand that command, which type of sorted list would you like?");
                                 System.out.println("If you wish to return to menu, type 7");
@@ -143,66 +136,74 @@ public class UserInterface {
                     } while (isRunning);
                 }
             } else if (valg == 5) {
-                System.out.println("Type the name of the superhero you'll like to edit:");
+                System.out.println("Type the name of the superhero you'd like to edit:");
                 String searchTerm = scanner.next();
                 ArrayList<Superhero> searchResult = controller.searchFor(searchTerm);
 
                 if (searchResult.isEmpty()) {
-                    System.out.println("No superhero found.");
+                    System.out.println("No superhero found");
 
                 } else {
                     System.out.println("Superhero found: ");
-                    for (int i = 0; i < searchResult.size(); i++) {
+                    for (int i = 0; i < searchResult.size(); i++)
                         System.out.println(((i) + 1) + ") " + searchResult.get(i));
-                    }
-                    System.out.println("\nWhat number does the superhero have, that you'll like to edit?:");
-                    int number = scanner.nextInt();
-                    scanner.nextLine();
-                    Superhero hero = searchResult.get(number - 1);
-
-
-                    System.out.println("Type the new superhero name er press 'enter' to keep the present name:");
-                    String heroName = scanner.nextLine();
-
-                    if (!heroName.isEmpty()) {
-                        hero.setHeroName(heroName);
-                    }
-                    System.out.println("Type the new name or press 'enter':");
-                    String realName = scanner.nextLine();
-
-                    if (!realName.isEmpty()) {
-                        hero.setRealName(realName);
-                    }
-
-                    System.out.println("Type the new superpower or press 'enter':");
-                    String superpower = scanner.nextLine();
-
-                    if (!superpower.isEmpty()) {
-                        hero.setSuperpower(superpower);
-                    }
-
-
-                    boolean writingError = false;
-                    do {
-                        try {
-                            System.out.println("Type creation year for your superhero:");
-                            String creationYear = scanner.nextLine();
-                            if (!creationYear.isEmpty()) {
-                                hero.setCreationYear(Integer.parseInt(creationYear));
-                            }
-                            writingError = false;
-
-                        } catch (NumberFormatException e) {
-                            System.out.println("Error occurred - try again.");
-                            writingError = true;
-                        }
-
-                    } while (writingError == true);
-
-                    System.out.println("Superhero changed to:\n " + hero);
                 }
+                System.out.println("\nWhat number does the superhero have, that you'd like to edit?:");
+                int number = scanner.nextInt();
+                scanner.nextLine();
+                Superhero hero = searchResult.get(number - 1);
+
+
+                System.out.println("Type the new superhero name er press 'enter' to keep the present name:");
+                String heroName = scanner.nextLine();
+
+                if (!heroName.isEmpty()) {
+                    hero.setHeroName(heroName);
+                }
+                System.out.println("Type the new name or press 'enter':");
+                String realName = scanner.nextLine();
+
+                if (!realName.isEmpty()) {
+                    hero.setRealName(realName);
+                }
+
+                System.out.println("Type the new superpower or press 'enter':");
+                String superpower = scanner.nextLine();
+
+                if (!superpower.isEmpty()) {
+                    hero.setSuperpower(superpower);
+                }
+
+
+                boolean writingError = false;
+                do {
+                    try {
+                        System.out.println("Type creation year for your superhero:");
+                        String creationYear = scanner.nextLine();
+                        if (!creationYear.isEmpty()) {
+                            hero.setCreationYear(Integer.parseInt(creationYear));
+                        }
+                        writingError = false;
+
+                    } catch (NumberFormatException e) {
+                        System.out.println("Error occurred - try again.");
+                        writingError = true;
+                    }
+
+                } while (writingError == true);
+
+                System.out.println("Type the new strength for the hero or press 'enter':");
+                String strength = scanner.nextLine();
+                if (!strength.isEmpty()){
+                    hero.setStrength(Double.parseDouble(strength));
+                }
+
+                System.out.println("Superhero changed to:\n " + hero);
+
+                System.out.println("Remember to save (type '7) to save your changes");
+
             } else if (valg == 6) {
-                System.out.println("Search for the hero you want to remove from database:");
+                System.out.println("Search for the hero you want to remove from the database:");
                 String searchTerm = scanner.next();
                 ArrayList<Superhero> searchResult = controller.searchFor(searchTerm);
 
@@ -214,7 +215,7 @@ public class UserInterface {
                     for (int i = 0; i < searchResult.size(); i++) {
                         System.out.println(((i) + 1) + ") " + searchResult.get(i));
                     }
-                    System.out.println("\nWhat number does the superhero have, that you want to delete?:");
+                    System.out.println("\nWhat number does the superhero have, that you wish to delete?:");
                     int number = scanner.nextInt();
                     scanner.nextLine();
                     Superhero superhero = searchResult.get(number - 1);
