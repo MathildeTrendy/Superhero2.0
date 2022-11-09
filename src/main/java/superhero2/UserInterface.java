@@ -62,7 +62,7 @@ public class UserInterface {
                             + "\n" + "Real name: " + superhero.getRealName()
                             + "\n" + "Creation year: " + superhero.getCreationYear()
                             + "\n" + "Superpower: " + superhero.getSuperpower()
-                            + "\n" + "Is human: " + superhero.getHumanternary()
+                            + "\n" + "Human: " + superhero.getHumanternary()
                             + "\n" + "Strength: " + superhero.getStrength() + "\n");
                 }
 
@@ -200,7 +200,7 @@ public class UserInterface {
 
                 System.out.println("Superhero changed to:\n " + hero);
 
-                System.out.println("Remember to save (type '7) to save your changes");
+                System.out.println("Remember to save (type '7') to save your changes");
 
             } else if (valg == 6) {
                 System.out.println("Search for the hero you want to remove from the database:");

@@ -36,8 +36,9 @@ public class Controller {
         //loadData();
     }
 
-    public void deleteSuperhero(Superhero deleteSuperhero) {
+    public void deleteSuperhero(Superhero deleteSuperhero) throws FileNotFoundException {
         database.deleteSuperhero(deleteSuperhero);
+        saveData();
     }
 
     public void sortedList() {
