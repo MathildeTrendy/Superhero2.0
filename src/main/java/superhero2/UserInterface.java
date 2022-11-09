@@ -206,7 +206,7 @@ public class UserInterface {
                     for (int i = 0; i < searchResult.size(); i++) {
                         System.out.println(((i) + 1) + ") " + searchResult.get(i));
                     }
-                    System.out.println("\nWhat number does the superhero have, that you want to delete?:");
+                    System.out.println("\nWhat number does the superhero have, that you wish to delete?:");
                     int number = scanner.nextInt();
                     scanner.nextLine();
                     Superhero superhero = searchResult.get(number - 1);
