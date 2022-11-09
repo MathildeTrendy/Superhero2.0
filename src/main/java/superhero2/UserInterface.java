@@ -192,7 +192,14 @@ public class UserInterface {
 
                 } while (writingError == true);
 
+                System.out.println("Type the new strength for the hero or press 'enter':");
+                String strength = scanner.nextLine();
+                if (!strength.isEmpty()){
+                    hero.setStrength(Double.parseDouble(strength));
+                }
+
                 System.out.println("Superhero changed to:\n " + hero);
+
             } else if (valg == 6) {
                 System.out.println("Search for the hero you want to remove from the database:");
                 String searchTerm = scanner.next();
