@@ -200,6 +200,8 @@ public class UserInterface {
 
                 System.out.println("Superhero changed to:\n " + hero);
 
+                System.out.println("Remember to save (type '7) to save your changes");
+
             } else if (valg == 6) {
                 System.out.println("Search for the hero you want to remove from the database:");
                 String searchTerm = scanner.next();
