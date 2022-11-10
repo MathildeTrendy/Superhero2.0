@@ -19,12 +19,12 @@ public class UserInterface {
             System.out.println("--------------------------------- \n Welcome to the world of Superheroes!");
             System.out.println("---------------------------------");
             System.out.println(" 1) Create new superhero \n " +
-                    "2) Show all superheroes \n " +
-                    "3) Search superhero  \n " +
-                    "4) Sorted list of heroes \n " +
+                    "2) Show list of all superheroes \n " +
+                    "3) Search for a superhero  \n " +
+                    "4) Sort list of heroes \n " +
                     "5) Edit hero \n " +
                     "6) Delete hero \n " +
-                    "7) Save hero \n " +
+                    "7) Save data \n " +
                     "8) Load data \n " +
                     "9) Exit database \n ---------------------------------");
 
@@ -135,7 +135,6 @@ public class UserInterface {
                         }
                     } while (isRunning);
                 }
-
             } else if (valg == 5) {
                 System.out.println("Type the name of the superhero you'd like to edit:");
                 String searchTerm = scanner.next();

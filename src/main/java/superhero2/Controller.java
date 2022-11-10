@@ -1,11 +1,13 @@
 package superhero2;
 
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import superhero2.comparator.FlexibleComparator;
 
+import java.io.FileNotFoundException;
+import java.util.*;
 
 public class Controller {
 
+    Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
     private Database database = new Database();
 
     public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
@@ -36,15 +38,29 @@ public class Controller {
         //loadData();
     }
 
-    public void deleteSuperhero(Superhero deleteSuperhero) {
-        database.deleteSuperhero(deleteSuperhero);
+    public void deleteSuperhero(Superhero superhero) throws FileNotFoundException {
+        database.deleteSuperhero(superhero);
+        saveData();
     }
 
-    public void sortedList() {
-        Database database = new Database();
-        database.SortedList();
+    public ArrayList<Superhero> sortedList(String sortedInput){
+        Comparator comparator = new FlexibleComparator(sortedInput);
+        database.getAllSuperHeroes().sort(comparator);
+        return database.getAllSuperHeroes();
+        }
+    public ArrayList<Superhero> sortedList(String primary, String secondary) {
+        Comparator comparator = new FlexibleComparator(primary);
+        database.getAllSuperHeroes().sort(comparator.thenComparing(new FlexibleComparator(secondary)));
+        if (!secondary.equals("None")){
+            database.getAllSuperHeroes().sort(comparator.thenComparing(new FlexibleComparator(secondary)));
+        }else{
+            database.getAllSuperHeroes().sort(comparator);
+
+        }
+        return database.getAllSuperHeroes();
     }
 }
+
 
 
 
