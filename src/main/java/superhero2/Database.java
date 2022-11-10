@@ -13,7 +13,6 @@ public class Database {
         return superheroesDB;
     }
 
-
     public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
 
         Superhero hero = new Superhero(heroName, realName, creationYear, superpower, human, strength);
