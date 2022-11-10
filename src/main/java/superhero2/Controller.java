@@ -9,9 +9,11 @@ public class Controller {
 
     Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
     private final Database database = new Database();
+    boolean isChanged = false;
 
     public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
         database.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
+        isChanged = true;
     }
 
     public ArrayList<Superhero> getListOfAllSuperHeroes() {
@@ -23,24 +25,28 @@ public class Controller {
     }
 
     public void editSuperhero() {
-        // TODO: Hvad skal der ske her, efter de er rykket til UI?
+        isChanged = true;
     }
 
     public void loadData() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
         ArrayList<Superhero> superheroes = filehandler.loadData();
         database.updateSuperheroList(superheroes);
+        isChanged = true;
     }
 
     public void saveData() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
         filehandler.saveData(database.getAllSuperHeroes());
-        //loadData();
+        isChanged = true;
+        loadData();
     }
 
     public void deleteSuperhero(Superhero superhero) throws FileNotFoundException {
         database.deleteSuperhero(superhero);
+        isChanged = true;
         saveData();
+        loadData();
     }
 
     public ArrayList<Superhero> sortedList(String sortedInput){
