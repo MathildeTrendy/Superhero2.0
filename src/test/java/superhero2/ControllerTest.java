@@ -36,12 +36,13 @@ class ControllerTest {
         //Arrange
 
         database.createSuperhero("Superman", "Kent Clark",1980, "Flight", true, 100  );
-        database.createSuperhero("Wonder Woman", "Diana Prince", 1890, "Super human strength",true, 100  );
+        database.createSuperhero("Wonder Woman", "Diana Prince", 1890, "Super human strength",true, 100);
         database.createSuperhero("Bobbel","Bobbel", 2004, "Tale med dyr", false, 70 );
         //Act
         ArrayList <Superhero> searchResult = database.searchFor ("superman");
         //Assert
-        assertEquals(1,searchResult.size()); //testsproget - forventer at det er sandt: expected og faktiske*/
+        assertEquals(1,searchResult.size());//testsproget - forventer at det er sandt: expected og faktiske*/
+
     }
 
     @Test

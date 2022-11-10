@@ -54,6 +54,7 @@ public class Filehandler {
         heroData.setHeroName(splits[0]);
         heroData.setRealName(splits[1]);
         int creationYear = Integer.parseInt(splits[2]);
+        heroData.setCreationYear(creationYear);
         heroData.setSuperpower(splits[3]);
         boolean human = Boolean.parseBoolean(splits[4]);
         heroData.setHuman(human);
