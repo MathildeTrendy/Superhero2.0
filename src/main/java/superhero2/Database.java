@@ -1,6 +1,7 @@
 package superhero2;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Database {
 
@@ -32,28 +33,12 @@ public class Database {
         return searchResult;
     }
 
-    public boolean deleteSuperhero() {
-        //Find superhero with this name
-        Superhero superhero = findSuperHeroByName(name);
-        if (superhero == null){
-            return  false;
-        }else {
-            superhero.delete(superhero);
-        }return true;
+    public boolean deleteSuperhero(Superhero superhero) {
+        boolean succes;
+        succes = superheroesDB.remove(superhero);
+        return succes;
     }
 
-    private Superhero findSuperHeroByName(String name){
-        for (Superhero superhero : superheroesDB){
-            if (superhero.getHeroName().equalsIgnoreCase(name)){
-            }
-        }
-        return null;
-    }
-
-
-
-
-    
 }
 
 

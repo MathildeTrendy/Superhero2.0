@@ -39,9 +39,8 @@ public class Controller {
     }
 
     public void deleteSuperhero(Superhero superhero) throws FileNotFoundException {
-        database.deleteSuperhero();
+        database.deleteSuperhero(superhero);
         saveData();
-    //TODO: TODO: Hvad skal der ske her, efter de er rykket til UI?
     }
 
     public ArrayList<Superhero> sortedList(String sortedInput){
@@ -52,6 +51,12 @@ public class Controller {
     public ArrayList<Superhero> sortedList(String primary, String secondary) {
         Comparator comparator = new FlexibleComparator(primary);
         database.getAllSuperHeroes().sort(comparator.thenComparing(new FlexibleComparator(secondary)));
+        if (!secondary.equals("None")){
+            database.getAllSuperHeroes().sort(comparator.thenComparing(new FlexibleComparator(secondary)));
+        }else{
+            database.getAllSuperHeroes().sort(comparator);
+
+        }
         return database.getAllSuperHeroes();
     }
 }

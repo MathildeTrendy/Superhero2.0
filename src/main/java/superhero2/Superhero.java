@@ -43,6 +43,9 @@ public class Superhero {
     public void setStrength(double strength) {
         this.strength = strength;
     }
+    public void setSuperpower(String superpower) {
+        this.superpower = superpower;
+    }
 
     // Getter for all the field of attributes
     public String getHeroName() {
@@ -86,5 +89,7 @@ public class Superhero {
         String getHumanternary  = (human) ? "No" : "Yes";
         return getHumanternary;
     }
+
+
 }
 
