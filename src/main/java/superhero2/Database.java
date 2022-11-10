@@ -28,7 +28,7 @@ public class Database {
         return superheroesDB;
     }
 
-    public boolean deleteSuperhero() {
+    public boolean deleteSuperhero(Superhero superhero) {
         boolean succes;
         succes = superheroesDB.remove(superhero);
         return succes;
@@ -36,10 +36,10 @@ public class Database {
 
     public void updateSuperheroList(ArrayList<Superhero> superheroes) {
         superheroesDB = superheroes;
-    }
+    } //TODO update method for which updates?
 
     public void SortedList() {
-        Comparator comparator = new
+
     }
 
 }

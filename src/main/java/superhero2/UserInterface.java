@@ -91,7 +91,7 @@ public class UserInterface {
 
                 while (userInput != 4) {
                     // Menu for list of sorted superheroes
-                    System.out.println("Choose how you would like to sort your heroes: ");
+                    System.out.println("Choose how you would like to sort your heroes by typing the number of your choice: ");
                     System.out.println("1) By superhero name");
                     System.out.println("2) By real name");
                     System.out.println("3) By year of origin");
@@ -99,17 +99,22 @@ public class UserInterface {
                     System.out.println("5) By strength of superhero");
                     System.out.println("6) By human status");
                     System.out.println("7) Sort superheroes by two requested values");
-                    System.out.println("8) Quit to main menu");
+                    System.out.println("8) Return to main menu");
 
-                    //Do-while loop that´s is looping through if userInput is true
+                    //Do-while loop that´s looping through if userInput is true
+                    //TODO
+                    // Lav en arralist
+                    //hent data fra databasen med controller metoden getSuperheroes
+                    ArrayList <Superhero> sortedList = new ArrayList<>();
+                    controller.getListOfAllSuperHeroes();
 
                     do {
                         userInput = scanner.nextInt();
                         scanner.nextLine();
                         switch (userInput) {
                             case 1 -> {
-                                //Arrays.sort(Superhero, new NameComparator());
-                                System.out.println("List is sorted by their real name : ");
+                                Collections.sort(sortedList, new NameComparator());
+                                System.out.println("List is sorted by their real name : " );
                             }
                             case 2 -> {
                                 System.out.println("Superheroes by Superhero name: ");
@@ -138,13 +143,13 @@ public class UserInterface {
                             }
                             default -> {
                                 System.out.println("I don't understand that command, which type of sorted list would you like?");
-                                System.out.println("If you wish to return to menu, type 7");
+                                System.out.println("If you wish to return to menu, type 8");
                             }
                         }
                     } while (isRunning);
                 }
 
-                private void sortedByPrimAnd2ry( ){
+                private void sortedByPrimAnd2ry(){
                     Scanner scanner1 = new Scanner(System.in);
                     int userInput1 = 0;
                     String primary = "";

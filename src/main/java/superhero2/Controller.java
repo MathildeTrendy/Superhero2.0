@@ -40,9 +40,8 @@ public class Controller {
     }
 
     public void deleteSuperhero(Superhero superhero) throws FileNotFoundException {
-        database.deleteSuperhero(deleteSuperhero);
+        database.deleteSuperhero(superhero);
         saveData();
-    //TODO: TODO: Hvad skal der ske her, efter de er rykket til UI?
     }
 
     public void sortedList() {
