@@ -1,11 +1,7 @@
 package superhero2;
 
-import superhero2.comparator.*;
-
-import javax.naming.Name;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Filehandler {
@@ -17,8 +13,6 @@ public class Filehandler {
 
         while (scan.hasNextLine()) {
             String line = scan.nextLine();
-            System.out.println(line);
-
             Superhero heroObject = splitLines(line);
 
             superheroes.add(heroObject);
@@ -28,7 +22,7 @@ public class Filehandler {
 
     public void saveData(ArrayList<Superhero> superheroes) throws FileNotFoundException {
 
-        PrintStream output = new PrintStream(new File(path));
+        PrintStream output = new PrintStream(path);
 
         for (Superhero superhero : superheroes) {
             output.print(superhero.getHeroName());

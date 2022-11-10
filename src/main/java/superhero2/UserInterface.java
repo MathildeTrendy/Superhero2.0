@@ -14,6 +14,7 @@ public class UserInterface {
     int userChoice;
 
     public void startMenu() throws IOException {
+        controller.loadData();
         do {
             System.out.println("--------------------------------- \n Welcome to the world of Superheroes!");
             System.out.println("---------------------------------");
@@ -23,8 +24,8 @@ public class UserInterface {
                     "4) Edit hero \n " +
                     "5) Delete hero \n " +
                     "6) Save data \n " +
-                    "7) Load date \n " +
-                    "8) Sort list of heroes \n " +
+                    "7) Sort list of heroes \n " +
+                    "8) Sort list of heroes by two parameters \n" +
                     "9) Exit database \n ---------------------------------");
 
 
@@ -184,16 +185,11 @@ public class UserInterface {
                 System.out.println("Data saved");
 
             } else if (userChoice == 7) {
-                controller.loadData();
-                System.out.println("Data loaded");
-
-            } else if (userChoice == 8) {
                 Scanner scanner = new Scanner(System.in);
                 int userInput = 0;
                 boolean isRunning;
                 String sortedInput = "";
 
-                while (userInput != 8) {
                     // Menu for list of sorted superheroes
                     System.out.println("Choose how you would like to sort your heroes: ");
                     System.out.println("1) By superhero name");
@@ -202,79 +198,61 @@ public class UserInterface {
                     System.out.println("4) By type of superpowers");
                     System.out.println("5) By strength of superhero");
                     System.out.println("6) By human status");
-                    System.out.println("7) Sort superheroes by two requested values");
-                    System.out.println("8) Quit to main menu");
+                    System.out.println("7) Quit to main menu");
 
                     ArrayList<Superhero> sortedList = controller.getListOfAllSuperHeroes();
 
-                    do {
-                        try {
-                            userInput = scanner.nextInt();
-                            scanner.nextLine();
-                            switch (userInput) {
-                                case 1 -> {
-                                    Collections.sort(sortedList, new NameComparator());
-                                    System.out.println("List is sorted by their real name : " + sortedList);
-                                }
-                                case 2 -> {
-                                    Collections.sort(sortedList, new SuperheroName());
-                                    System.out.println("Superheroes by Superhero name: "+ sortedList);
-                                }
-                                case 3 -> {
-                                    Collections.sort(sortedList, new CreationYear());
-                                    System.out.println("Superheroes by year of origin: "+ sortedList);
-                                }
-                                case 4 -> {
-                                    Collections.sort(sortedList, new SuperPower());
-                                    System.out.println("Superheroes by type of superpowers: "+ sortedList);
-                                }
-                                case 5 -> {
-                                    Collections.sort(sortedList, new Strength());
-                                    System.out.println("Superheroes by strength: "+ sortedList);
-
-                                }
-                                case 6 -> {
-                                    Collections.sort(sortedList, new Human());
-                                    System.out.println("Superheroes by human status: "+ sortedList);
-                                    //Collections.sort(Su, new Human());
-                                }
-                                case 7 -> {
-                                    sortedByPrimAnd2ry();
-                                    Collections.sort(sortedList, new FlexibleComparator(sortedInput));
-
-                                }
-                                case 8 -> {
-                                    System.out.println("Returning to main menu");
-                                    isRunning = false;
-                                }
+                    try {
+                        userInput = scanner.nextInt();
+                        scanner.nextLine();
+                        switch (userInput) {
+                            case 1 -> {
+                                Collections.sort(sortedList, new NameComparator());
+                                System.out.println("List is sorted by their real name : " + sortedList);
                             }
+                            case 2 -> {
+                                Collections.sort(sortedList, new SuperheroName());
+                                System.out.println("Superheroes by Superhero name: " + sortedList);
+                            }
+                            case 3 -> {
+                                Collections.sort(sortedList, new CreationYear());
+                                System.out.println("Superheroes by year of origin: " + sortedList);
+                            }
+                            case 4 -> {
+                                Collections.sort(sortedList, new SuperPower());
+                                System.out.println("Superheroes by type of superpowers: " + sortedList);
+                            }
+                            case 5 -> {
+                                Collections.sort(sortedList, new Strength());
+                                System.out.println("Superheroes by strength: " + sortedList);
 
-                            isRunning = false;
-                        }catch (InputMismatchException e){
-                            System.out.println("I don't understand that command, which type of sorted list would you like?");
-                            System.out.println("If you wish to return to menu, type 7");
-                            isRunning = true;
-                            scanner.nextLine();
+                            }
+                            case 6 -> {
+                                Collections.sort(sortedList, new Human());
+                                System.out.println("Superheroes by human status: " + sortedList);
+                                //Collections.sort(Su, new Human());
+                            }
+                            case 7 -> {
+                                System.out.println("Returning to main menu");
+                                isRunning = false;
+                            }
                         }
-                    } while (isRunning);
+
+                        isRunning = false;
+                    } catch (InputMismatchException e) {
+                        System.out.println("I don't understand that command, which type of sorted list would you like?");
+                        System.out.println("If you wish to return to menu, type 7");
+                        isRunning = true;
+                        scanner.nextLine();
+                    }
                 }
+                else if (userChoice == 8) {
+            Scanner scanner1 = new Scanner(System.in);
+            int userInput1 = 0;
+            String primary = "";
+            String secondary = "";
+            boolean isRunning;
 
-            } else if (userChoice == 9) {
-                System.exit(0);
-            }
-
-        } while (userChoice != 9);
-    }
-
-    private void sortedByPrimAnd2ry() {
-        Scanner scanner1 = new Scanner(System.in);
-        int userInput1 = 0;
-        String primary = "";
-        String secondary = "";
-        boolean isRunning;
-
-        while (userInput1 == 7) {
-            //Command for sorting superheroes by the requested primary and secondary attribute
             System.out.println("Sort superheroes by a requested primary and secondary attribute, begin with primary value ");
             System.out.println("""
                     1. Superhero name 
@@ -289,7 +267,6 @@ public class UserInterface {
 
             ArrayList<Superhero> sortedListsecondaryandprimary = controller.getListOfAllSuperHeroes();
 
-            do {
                 try {
                     userInput1 = scanner1.nextInt();
                     scanner1.nextLine();
@@ -351,17 +328,15 @@ public class UserInterface {
                             secondary = "None";
                         }
                     }
+                    System.out.println(sortedListsecondaryandprimary);
 
                     isRunning = false;
                 } catch (InputMismatchException e) {
                     System.out.println("Unkown command, try again");
                     isRunning = true;
                     scanner.nextLine();
-                }
+                }}
 
-            } while (isRunning);
-
-        }
-
-    }
-    }
+        } while (userChoice != 9);
+    System.exit(0);
+}}

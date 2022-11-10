@@ -39,7 +39,6 @@ public class Controller {
         Filehandler filehandler = new Filehandler();
         filehandler.saveData(database.getAllSuperHeroes());
         isChanged = true;
-        loadData();
     }
 
     public void deleteSuperhero(Superhero superhero) throws FileNotFoundException {
