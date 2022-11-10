@@ -286,7 +286,7 @@ public class UserInterface {
                     3. Superhero creation year 
                     4. Superpower
                     5. Superhero human status
-                    6. Strenght """);
+                    6. Strength """);
 
             System.out.println("9. exit ");
             // Do-while loop that´s keep looping through if userinput is true
@@ -323,7 +323,7 @@ public class UserInterface {
                             3. Superhero creation year 
                             4. Superpower
                             5. Superhero human status
-                            6. Strenght 
+                            6. Strength 
                             7. None """);
 
                     int secondInput = scanner.nextInt();
@@ -346,7 +346,7 @@ public class UserInterface {
                             secondary = "Sort your second requested value as superheroes by human status: ";
                         }
                         case 6 -> {
-                            secondary = "Sort your second requested value as superheroes by strenght: ";
+                            secondary = "Sort your second requested value as superheroes by strength: ";
                         }
                         case 7 -> {
                             secondary = "None";
