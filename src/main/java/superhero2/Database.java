@@ -38,7 +38,7 @@ public class Database {
 
     public void updateSuperheroList(ArrayList<Superhero> superheroes) {
         superheroesDB = superheroes;
-    } //TODO update method for which updates?
+    }
 
     public void SortedList() {
 

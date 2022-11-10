@@ -239,9 +239,9 @@ public class UserInterface {
                                     //Collections.sort(Su, new Human());
                                 }
                                 case 7 -> {
-                                    Collections.sort(sortedList, new FlexibleComparator(sortedInput));
                                     sortedByPrimAnd2ry();
-                                    System.out.println("sort superheroes by a requested primary and secondary attribute"+ sortedList);
+                                    Collections.sort(sortedList, new FlexibleComparator(sortedInput));
+
                                 }
                                 case 8 -> {
                                     System.out.println("Returning to main menu");
@@ -273,7 +273,7 @@ public class UserInterface {
         String secondary = "";
         boolean isRunning;
 
-        while (userInput1 != 4) {
+        while (userInput1 == 7) {
             //Command for sorting superheroes by the requested primary and secondary attribute
             System.out.println("Sort superheroes by a requested primary and secondary attribute, begin with primary value ");
             System.out.println("""
@@ -286,13 +286,16 @@ public class UserInterface {
 
             System.out.println("9. exit ");
             // Do-while loop that´s keep looping through if userinput is true
+
+            ArrayList<Superhero> sortedListsecondaryandprimary = controller.getListOfAllSuperHeroes();
+
             do {
                 try {
-                    ArrayList<Superhero> allSuperheroes = controller.getListOfAllSuperHeroes();
                     userInput1 = scanner1.nextInt();
                     scanner1.nextLine();
                     switch (userInput1) {
                         case 1 -> {
+                            Collections.sort(sortedListsecondaryandprimary, new NameComparator());
                             primary = "Sort superheroes by Superhero name: ";
                         }
                         case 2 -> {
@@ -348,7 +351,7 @@ public class UserInterface {
                             secondary = "None";
                         }
                     }
-                    ArrayList<Superhero> sortedList = controller.sortedList(primary, secondary);
+
                     isRunning = false;
                 } catch (InputMismatchException e) {
                     System.out.println("Unkown command, try again");
