@@ -135,6 +135,7 @@ public class UserInterface {
                         }
                     } while (isRunning);
                 }
+
             } else if (valg == 5) {
                 System.out.println("Type the name of the superhero you'd like to edit:");
                 String searchTerm = scanner.next();
