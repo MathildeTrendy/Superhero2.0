@@ -5,7 +5,14 @@ import java.util.Comparator;
 
 public class Database {
 
+    //Attributes
     private ArrayList<Superhero> superheroesDB = new ArrayList<>();
+
+    // Getter for arraylist of superheroes
+    public ArrayList<Superhero> getAllSuperHeroes() {
+        return superheroesDB;
+    }
+
 
     public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
 
@@ -24,11 +31,7 @@ public class Database {
         return searchResult;
     }
 
-    public ArrayList<Superhero> getAllSuperHeroes() {
-        return superheroesDB;
-    }
-
-    public boolean deleteSuperhero() {
+    public boolean deleteSuperhero(Superhero superhero) {
         boolean succes;
         succes = superheroesDB.remove(superhero);
         return succes;
@@ -36,10 +39,10 @@ public class Database {
 
     public void updateSuperheroList(ArrayList<Superhero> superheroes) {
         superheroesDB = superheroes;
-    }
+    } //TODO update method for which updates?
 
     public void SortedList() {
-        Comparator comparator = new
+
     }
 
 }
