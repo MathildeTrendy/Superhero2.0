@@ -11,7 +11,7 @@ public class UserInterface {
     Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
     Controller controller = new Controller();
 
-    int valg;
+    int userChoice;
 
     public void startMenu() throws IOException {
         do {
@@ -28,10 +28,10 @@ public class UserInterface {
                     "9) Exit database \n ---------------------------------");
 
 
-            int valg = scanner.nextInt();
+            int userChoice = scanner.nextInt();
             scanner.nextLine();
 
-            if (valg == 1) {
+            if (userChoice == 1) {
                 System.out.println("Create superhero\n");
 
                 System.out.println("Type a superhero name(fx Superman):");
@@ -54,7 +54,7 @@ public class UserInterface {
                 System.out.println("In order to save, load and see your superheroes, follow the main menu");
                 controller.createSuperhero(heroName, realName, creationYear, superpower, human, strength);
 
-            } else if (valg == 2) {
+            } else if (userChoice == 2) {
                 System.out.println("List of superheroes:\n");
                 for (Superhero superhero : controller.getListOfAllSuperHeroes()) {
                     System.out.println("Superhero name: " + superhero.getHeroName()
@@ -65,7 +65,7 @@ public class UserInterface {
                             + "\n" + "Strength: " + superhero.getStrength() + "\n");
                 }
 
-            } else if (valg == 3) {
+            } else if (userChoice == 3) {
                 System.out.println("---------------------------------\nSearch for superhero:");
 
                 System.out.println("Type the name of your favorite superhero");
@@ -82,7 +82,7 @@ public class UserInterface {
                     }
                 }
 
-            } else if (valg == 4) {
+            } else if (userChoice == 4) {
                 System.out.println("Type the name of the superhero you'd like to edit:");
                 String searchTerm = scanner.next();
                 ArrayList<Superhero> searchResult = controller.searchFor(searchTerm);
@@ -149,7 +149,7 @@ public class UserInterface {
                     System.out.println("Remember to save (type '7') to save your changes");
                 }
 
-            } else if (valg == 5) {
+            } else if (userChoice == 5) {
                 System.out.println("Search for the hero you want to remove from the database:");
                 String searchTerm = scanner.next();
                 ArrayList<Superhero> searchResult = controller.searchFor(searchTerm);
@@ -179,15 +179,15 @@ public class UserInterface {
 
                     }
                 }
-            } else if (valg == 6) {
+            } else if (userChoice == 6) {
                 controller.saveData();
                 System.out.println("Data saved");
 
-            } else if (valg == 7) {
+            } else if (userChoice == 7) {
                 controller.loadData();
                 System.out.println("Data loaded");
 
-            } else if (valg == 8) {
+            } else if (userChoice == 8) {
                 Scanner scanner = new Scanner(System.in);
                 int userInput = 0;
                 boolean isRunning;
@@ -259,11 +259,11 @@ public class UserInterface {
                     } while (isRunning);
                 }
 
-            } else if (valg == 9) {
+            } else if (userChoice == 9) {
                 System.exit(0);
             }
 
-        } while (valg != 9);
+        } while (userChoice != 9);
     }
 
     private void sortedByPrimAnd2ry() {
