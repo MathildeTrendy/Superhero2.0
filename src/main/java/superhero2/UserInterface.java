@@ -195,7 +195,7 @@ public class UserInterface {
 
                 while (userInput != 8) {
                     // Menu for list of sorted superheroes
-                    System.out.println("Choose how you would like to sort your heroes: ");
+                    System.out.println("Choose a number in which order you want to sort the list: ");
                     System.out.println("1) By superhero name");
                     System.out.println("2) By real name");
                     System.out.println("3) By year of origin");
@@ -233,7 +233,7 @@ public class UserInterface {
                                 }
                                 case 7 -> {
                                     sortedByPrimAnd2ry();
-                                    System.out.println("sort superheroes by a requested primary and secondary attribute");
+                                    System.out.println("Sort superheroes by a requested primary and secondary attribute");
                                 }
                                 case 8 -> {
                                     System.out.println("Returning to main menu");
@@ -243,7 +243,7 @@ public class UserInterface {
                             ArrayList<Superhero> sortedList = controller.sortedList(sortedInput);
                             isRunning = false;
                         }catch (InputMismatchException e){
-                            System.out.println("I don't understand that command, which type of sorted list would you like?");
+                            System.out.println("I don't understand that command - choose another number");
                             System.out.println("If you wish to return to menu, type 7");
                             isRunning = true;
                             scanner.nextLine();
