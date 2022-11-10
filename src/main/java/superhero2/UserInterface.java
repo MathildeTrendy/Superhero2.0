@@ -205,42 +205,52 @@ public class UserInterface {
                     System.out.println("7) Sort superheroes by two requested values");
                     System.out.println("8) Quit to main menu");
 
+                    //Arraylist of sorted superheroes
+                    ArrayList<Superhero> sortedList = controller.sortedList(sortedInput);
+                    //ArrayList<Superhero> sortedList = controller.getListOfAllSuperHeroes();
+
                     do {
                         try {
                             userInput = scanner.nextInt();
                             scanner.nextLine();
                             switch (userInput) {
                                 case 1 -> {
-                                    //Arrays.sort(Superhero, new NameComparator());
-                                    System.out.println("List is sorted by their real name : ");
+                                    Collections.sort(sortedList, new NameComparator());
+                                    System.out.println("List is sorted by their real name : " + sortedList);
                                 }
                                 case 2 -> {
-                                    System.out.println("Superheroes by Superhero name: ");
+                                    Collections.sort(sortedList, new SuperheroName());
+                                    System.out.println("Superheroes by Superhero name: " + sortedList);
                                 }
                                 case 3 -> {
-                                    System.out.println("Superheroes by year of origin: ");
+                                    Collections.sort(sortedList, new CreationYear());
+                                    System.out.println("Superheroes by year of origin: " + sortedList);
                                 }
                                 case 4 -> {
-                                    System.out.println("Superheroes by type of superpowers: ");
+                                    Collections.sort(sortedList, new SuperPower());
+                                    System.out.println("Superheroes by type of superpowers: "+ sortedList);
                                 }
                                 case 5 -> {
-                                    System.out.println("Superheroes by strength: ");
+                                    Collections.sort(sortedList, new Strength());
+                                    System.out.println("Superheroes by strength: "+ sortedList);
 
                                 }
                                 case 6 -> {
-                                    System.out.println("Superheroes by human status: ");
-                                    //Collections.sort(Su, new Human());
+                                    Collections.sort(sortedList, new Human());
+                                    System.out.println("Superheroes by human status: "+ sortedList);
+
                                 }
                                 case 7 -> {
+                                    Collections.sort(sortedList, new FlexibleComparator(sortedInput));
                                     sortedByPrimAnd2ry();
-                                    System.out.println("sort superheroes by a requested primary and secondary attribute");
+                                    System.out.println("sort superheroes by a requested primary and secondary attribute "+ sortedList);
                                 }
                                 case 8 -> {
                                     System.out.println("Returning to main menu");
                                     isRunning = false;
                                 }
                             }
-                            ArrayList<Superhero> sortedList = controller.sortedList(sortedInput);
+
                             isRunning = false;
                         }catch (InputMismatchException e){
                             System.out.println("I don't understand that command, which type of sorted list would you like?");
