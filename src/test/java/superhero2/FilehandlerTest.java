@@ -2,7 +2,6 @@ package superhero2;
 import org.testng.annotations.Test;
 
 
-
 class FilehandlerTest {
 
     @Test

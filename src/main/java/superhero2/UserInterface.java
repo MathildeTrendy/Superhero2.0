@@ -1,4 +1,4 @@
-package superhero2;
+/*package superhero2;
 
 import superhero2.comparator.*;
 
@@ -128,7 +128,7 @@ public class UserInterface {
                                 System.out.println("Superheroes by human status: ");
                                 //Collections.sort(Su, new Human());
                             }
-                            case 7 -> {
+                           /* case 7 -> {
                                 sortedByPrimAnd2ry();
                                 System.out.println("sort superheroes by a requested primary and secondary attribute");
                             }
@@ -144,14 +144,14 @@ public class UserInterface {
                     } while (isRunning);
                 }
 
-                private void sortedByPrimAnd2ry( ){
+               private void sortedByPrimAnd2ry() {
                     Scanner scanner1 = new Scanner(System.in);
                     int userInput1 = 0;
                     String primary = "";
                     String secondary = "";
                     boolean isRunning1 = true;
 
-                    while (userInput1!=4){
+                    while (userInput1 != 4) {
                         //Command for sorting superheroes by the requested primary and secondary attribute
                         System.out.println("Sort superheroes by a requested primary and secondary attribute, begin with primary value ");
                         System.out.println("""
@@ -160,7 +160,7 @@ public class UserInterface {
                                 3. Superhero creation year 
                                 4. Superpower
                                 5. Superhero human status
-                                6. Strenght """);
+                                6. Strength """);
 
                         System.out.println("9. exit ");
                         // Do-while loop that´s keep looping through if userinput is true
@@ -171,24 +171,18 @@ public class UserInterface {
                                 userInput1 = scanner1.nextInt();
                                 scanner1.nextLine();
                                 switch (userInput1) {
-                                    case 1 -> {
-                                        primary = ("Sort superheroes by Superhero name: ");
-                                    }
-                                    case 2 -> {
-                                        primary = ("Sort superheroes by real name: ");
-                                    }
-                                    case 3 -> {
-                                        primary = ("Sort superheroes by year of origin: ");
-                                    }
-                                    case 4 -> {
-                                        primary = ("Superheroes by type of superpowers: ");
-                                    }
-                                    case 5 -> {
-                                        primary = ("Superheroes by human status: ");
-                                    }
-                                    case 6 -> {
-                                        primary = ("Superheroes by strength: ");
-                                    }
+                                    case 1 -> primary = ("Sort superheroes by Superhero name: ");
+
+                                    case 2 -> primary = ("Sort superheroes by real name: ");
+
+                                    case 3 -> primary = ("Sort superheroes by year of origin: ");
+
+                                    case 4 -> primary = ("Superheroes by type of superpowers: ");
+
+                                    case 5 -> primary = ("Superheroes by human status: ");
+
+                                    case 6 -> primary = ("Superheroes by strength: ");
+
                                 }
 
                                 System.out.println("Choose your requested secondary value");
@@ -198,40 +192,35 @@ public class UserInterface {
                                         3. Superhero creation year 
                                         4. Superpower
                                         5. Superhero human status
-                                        6. Strenght """);
+                                        6. Strength """);
 
                                 int secondInput = scanner.nextInt();
                                 scanner1.nextLine();
 
                                 switch (secondInput) {
-                                    case 1 -> {
-                                        secondary = ("Sort your second requested value as superheroes by Superhero name: ");
-                                    }
-                                    case 2 -> {
-                                        secondary = ("Sort your second requested value as superheroes by  real name: ");
-                                    }
-                                    case 3 -> {
-                                        secondary = ("Sort your second requested value as superheroes by year of origin: ");
-                                    }
-                                    case 4 -> {
-                                        secondary = ("Sort your second requested value as superheroes by superpowers: ");
-                                    }
-                                    case 5 -> {
-                                        secondary = ("Sort your second requested value as superheroes by human status: ");
-                                    }
-                                    case 6 -> {
-                                        secondary = ("Sort your second requested value as superheroes by strenght: ");
-                                    }
+                                    case 1 -> secondary = ("Sort your second requested value as superheroes by Superhero name: ");
+
+                                    case 2 -> secondary = ("Sort your second requested value as superheroes by  real name: ");
+
+                                    case 3 -> secondary = ("Sort your second requested value as superheroes by year of origin: ");
+
+                                    case 4 -> secondary = ("Sort your second requested value as superheroes by superpowers: ");
+
+                                    case 5 -> secondary = ("Sort your second requested value as superheroes by human status: ");
+
+                                    case 6 -> secondary = ("Sort your second requested value as superheroes by strength: ");
                                 }
-                                ArrayList<Superhero> sortedList = controller.sortedList(primary, secondary);
+
+
+                                ArrayList<Superhero> sortedList = controller.sortedList(userInput1, secondInput);
                                 printedSorted(sortedList);
-                                userInput1 = false;
-                            }
+                                     = false;
+                                }
 
-                        }while (isRunning1);
-
+                            } while (isRunning1) ;
+                        }
                     }
-                }
+
 
 
             } else if (valg == 5) {
@@ -289,11 +278,11 @@ public class UserInterface {
                         writingError = true;
                     }
 
-                } while (writingError == true);
+                } while (writingError);
 
                 System.out.println("Type the new strength for the hero or press 'enter':");
                 String strength = scanner.nextLine();
-                if (!strength.isEmpty()){
+                if (!strength.isEmpty()) {
                     hero.setStrength(Double.parseDouble(strength));
                 }
 
@@ -321,12 +310,12 @@ public class UserInterface {
 
                     System.out.println("Are you sure, you want to delete the superhero? (true/false): ");
                     boolean delete = scanner.nextBoolean();
-                    if (delete == true) {
+                    if (delete) {
                         controller.deleteSuperhero(superhero);
 
                         System.out.println("Superhero deleted from database.");
 
-                    } else if (delete == false) {
+                    } else if (!delete) {
                         System.out.println("Superhero not deleted.");
 
                     }
@@ -343,11 +332,10 @@ public class UserInterface {
 
 
         } while (valg != 9);
-
-
     }
 
 
 
-
 }
+
+*/

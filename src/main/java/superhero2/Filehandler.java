@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Filehandler {
-    private String path = "data/Superheroes.csv";
+    private final String path = "data/Superheroes.csv";
 
     public ArrayList<Superhero> loadData() throws FileNotFoundException {
         Scanner scan = new Scanner(new File(path));
