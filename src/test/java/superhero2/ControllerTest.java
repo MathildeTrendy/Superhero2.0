@@ -42,6 +42,8 @@ class ControllerTest {
         ArrayList <Superhero> searchResult = database.searchFor ("superman");
         //Assert
         assertEquals(1,searchResult.size()); //testsproget - forventer at det er sandt: expected og faktiske*/
+        Superhero superhero = searchResult.get(0);
+        assertEquals("Superman", superhero.getHeroName());
     }
 
     @Test
