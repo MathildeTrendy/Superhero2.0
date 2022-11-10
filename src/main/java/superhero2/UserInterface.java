@@ -20,11 +20,11 @@ public class UserInterface {
             System.out.println(" 1) Create new superhero \n " +
                     "2) Show list of all superheroes \n " +
                     "3) Search for a superhero  \n " +
-                    "4) Sort list of heroes \n " +
-                    "5) Edit hero \n " +
-                    "6) Delete hero \n " +
-                    "7) Save data \n " +
-                    "8) Load data \n " +
+                    "4) Edit heroSort list of heroes \n " +
+                    "5) Delete heroSort list of heroes \n " +
+                    "6) Save data \n " +
+                    "7) Load data \n " +
+                    "8) Sort list of heroe \n " +
                     "9) Exit database \n ---------------------------------");
 
 
@@ -267,7 +267,7 @@ public class UserInterface {
         String secondary = "";
         boolean isRunning;
 
-        while (userInput1 != 4) {
+        while (userInput1 == 8) {
             //Command for sorting superheroes by the requested primary and secondary attribute
             System.out.println("Sort superheroes by a requested primary and secondary attribute, begin with primary value ");
             System.out.println("""
