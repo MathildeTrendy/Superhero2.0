@@ -1,7 +1,6 @@
 package superhero2;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class Database {
 
@@ -40,8 +39,9 @@ public class Database {
         superheroesDB = superheroes;
     } //TODO update method for which updates?
 
-    public void SortedList() {
+    public ArrayList<Superhero> SortedList() {
 
+        return null;
     }
 
 }

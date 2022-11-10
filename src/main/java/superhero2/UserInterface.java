@@ -343,7 +343,7 @@ public class UserInterface {
                     ArrayList<Superhero> sortedList = controller.sortedList(primary, secondary);
                     isRunning = false;
                 } catch (InputMismatchException e) {
-                    System.out.println("Unkown command, try again");
+                    System.out.println("Unknown command, try again");
                     isRunning = true;
                     scanner.nextLine();
                 }
