@@ -8,7 +8,7 @@ import java.util.*;
 public class Controller {
 
     Scanner scanner = new Scanner(System.in).useLocale(Locale.ENGLISH);
-    private Database database = new Database();
+    private final Database database = new Database();
 
     public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
         database.createSuperhero(heroName, realName, creationYear, superpower, human, strength);

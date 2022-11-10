@@ -1,7 +1,7 @@
 package superhero2;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Comparator;
 
 public class Database {
 
@@ -13,11 +13,8 @@ public class Database {
         return superheroesDB;
     }
 
-    public void updateSuperheroList(ArrayList<Superhero> superheroes) {
-        superheroesDB = superheroes;
-    }
-
     public void createSuperhero(String heroName, String realName, int creationYear, String superpower, boolean human, double strength) {
+
         Superhero hero = new Superhero(heroName, realName, creationYear, superpower, human, strength);
         superheroesDB.add(hero);
     }
@@ -37,6 +34,14 @@ public class Database {
         boolean succes;
         succes = superheroesDB.remove(superhero);
         return succes;
+    }
+
+    public void updateSuperheroList(ArrayList<Superhero> superheroes) {
+        superheroesDB = superheroes;
+    } //TODO update method for which updates?
+
+    public void SortedList() {
+
     }
 
 }
